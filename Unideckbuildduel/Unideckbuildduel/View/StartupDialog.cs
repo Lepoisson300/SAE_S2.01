@@ -15,6 +15,10 @@ namespace Unideckbuildduel.View
     /// </summary>
     public partial class StartupDialog : Form
     {
+        public string Player1Name;
+
+        public string Player2Name; 
+
         /// <summary>
         /// The limit of turns selected by the user
         /// </summary>
@@ -25,6 +29,12 @@ namespace Unideckbuildduel.View
         public StartupDialog()
         {
             InitializeComponent();
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            Player1Name = txtBoxp1.Text;
+            Player2Name = txtBoxp2.Text;
         }
     }
 }

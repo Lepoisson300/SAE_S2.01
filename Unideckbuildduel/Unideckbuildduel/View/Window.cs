@@ -130,6 +130,12 @@ namespace Unideckbuildduel.View
             Controller.GetControler.PlaceAllCards();
         }
 
+        public void disableButton()
+        {
+            nextTurnButton.Enabled = false;
+            placeAllButton.Enabled = false;
+        }
+
         private void QuitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
