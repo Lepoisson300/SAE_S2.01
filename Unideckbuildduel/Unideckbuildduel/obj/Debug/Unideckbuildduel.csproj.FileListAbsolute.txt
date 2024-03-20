@@ -1,0 +1,12 @@
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\bin\Debug\Unideckbuildduel.exe.config
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\bin\Debug\Unideckbuildduel.exe
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\bin\Debug\Unideckbuildduel.pdb
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.AssemblyReference.cache
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.SuggestedBindingRedirects.cache
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.Properties.Resources.resources
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.View.StartupDialog.resources
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.View.Window.resources
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.GenerateResource.cache
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.CoreCompileInputs.cache
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.exe
+Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.pdb
