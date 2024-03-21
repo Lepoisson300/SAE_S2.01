@@ -41,11 +41,13 @@ namespace Unideckbuildduel
         {
             string playerOneName = "First";
             string playerTwoName = "Second";
-            //StartupDialog sd = new StartupDialog();
-            //if (sd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    NumbersOfTurnsToGo = sd.TurnLimit;
-            //}
+            StartupDialog sd = new StartupDialog();
+            if (sd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                NumbersOfTurnsToGo = sd.TurnLimit;
+                playerOneName = sd.Player1Name;
+                playerTwoName = sd.Player2Name;
+            }
             Window.GetWindow.WriteLine("Starting new game with " + NumbersOfTurnsToGo + " turns to go.");
             Game.GetGame.NewGame(playerOneName, playerTwoName);
             Game.GetGame.Play();
@@ -140,12 +142,14 @@ namespace Unideckbuildduel
         {
             if (NumbersOfTurnsToGo>0)
             {
-                if (NumbersOfTurnsToGo<Game.GetGame.Turn)
+                if (NumbersOfTurnsToGo<=Game.GetGame.Turn)
                 {
                     Window.GetWindow.WriteLine("Game over");
+                    Window.GetWindow.disableButton();
                 }
             }
-            Window.GetWindow.WriteLine("Turn ended. It is now player " + PlayerName(currentPlayer)+"'s turn in turn number " + turn + ".");
+            else
+                Window.GetWindow.WriteLine("Turn ended. It is now player " + PlayerName(currentPlayer)+"'s turn in turn number " + turn + ".");
         }
         /// <summary>
         /// Feedback : indicates that the play (cards) phase has started

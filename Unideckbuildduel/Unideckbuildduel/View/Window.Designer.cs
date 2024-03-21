@@ -35,11 +35,12 @@
             this.turnLabel = new System.Windows.Forms.Label();
             this.playerTwoScoreLabel = new System.Windows.Forms.Label();
             this.playerOneScoreLabel = new System.Windows.Forms.Label();
+            this.replayButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(1064, 552);
+            this.quitButton.Location = new System.Drawing.Point(1064, 534);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 0;
@@ -57,7 +58,7 @@
             // 
             // placeAllButton
             // 
-            this.placeAllButton.Location = new System.Drawing.Point(1064, 523);
+            this.placeAllButton.Location = new System.Drawing.Point(1064, 505);
             this.placeAllButton.Name = "placeAllButton";
             this.placeAllButton.Size = new System.Drawing.Size(75, 23);
             this.placeAllButton.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // nextTurnButton
             // 
-            this.nextTurnButton.Location = new System.Drawing.Point(1064, 494);
+            this.nextTurnButton.Location = new System.Drawing.Point(1064, 476);
             this.nextTurnButton.Name = "nextTurnButton";
             this.nextTurnButton.Size = new System.Drawing.Size(75, 23);
             this.nextTurnButton.TabIndex = 3;
@@ -96,17 +97,27 @@
             // playerOneScoreLabel
             // 
             this.playerOneScoreLabel.AutoSize = true;
-            this.playerOneScoreLabel.Location = new System.Drawing.Point(967, 504);
+            this.playerOneScoreLabel.Location = new System.Drawing.Point(967, 486);
             this.playerOneScoreLabel.Name = "playerOneScoreLabel";
             this.playerOneScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerOneScoreLabel.TabIndex = 6;
             this.playerOneScoreLabel.Text = "label1";
+            // 
+            // replayButton
+            // 
+            this.replayButton.Location = new System.Drawing.Point(1064, 565);
+            this.replayButton.Name = "replayButton";
+            this.replayButton.Size = new System.Drawing.Size(75, 23);
+            this.replayButton.TabIndex = 7;
+            this.replayButton.Text = "Restart";
+            this.replayButton.UseVisualStyleBackColor = true;
             // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.Controls.Add(this.replayButton);
             this.Controls.Add(this.playerOneScoreLabel);
             this.Controls.Add(this.playerTwoScoreLabel);
             this.Controls.Add(this.turnLabel);
@@ -132,6 +143,7 @@
         private System.Windows.Forms.Label turnLabel;
         private System.Windows.Forms.Label playerTwoScoreLabel;
         private System.Windows.Forms.Label playerOneScoreLabel;
+        private System.Windows.Forms.Button replayButton;
     }
 }
 

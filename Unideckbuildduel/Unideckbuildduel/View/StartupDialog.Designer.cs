@@ -34,17 +34,21 @@
             this.turnsTextLabel = new System.Windows.Forms.Label();
             this.nameOneTextLabel = new System.Windows.Forms.Label();
             this.nameTwoTextLabel = new System.Windows.Forms.Label();
+            this.txtBoxp1 = new System.Windows.Forms.TextBox();
+            this.txtBoxp2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.turnLimitNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // okButton
             // 
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.Location = new System.Drawing.Point(579, 105);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
@@ -105,11 +109,27 @@
             this.nameTwoTextLabel.TabIndex = 5;
             this.nameTwoTextLabel.Text = "Player two name:";
             // 
+            // txtBoxp1
+            // 
+            this.txtBoxp1.Location = new System.Drawing.Point(210, 105);
+            this.txtBoxp1.Name = "txtBoxp1";
+            this.txtBoxp1.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxp1.TabIndex = 6;
+            // 
+            // txtBoxp2
+            // 
+            this.txtBoxp2.Location = new System.Drawing.Point(210, 145);
+            this.txtBoxp2.Name = "txtBoxp2";
+            this.txtBoxp2.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxp2.TabIndex = 7;
+            // 
             // StartupDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(691, 229);
+            this.Controls.Add(this.txtBoxp2);
+            this.Controls.Add(this.txtBoxp1);
             this.Controls.Add(this.nameTwoTextLabel);
             this.Controls.Add(this.nameOneTextLabel);
             this.Controls.Add(this.turnsTextLabel);
@@ -132,5 +152,7 @@
         private System.Windows.Forms.Label turnsTextLabel;
         private System.Windows.Forms.Label nameOneTextLabel;
         private System.Windows.Forms.Label nameTwoTextLabel;
+        private System.Windows.Forms.TextBox txtBoxp1;
+        private System.Windows.Forms.TextBox txtBoxp2;
     }
 }

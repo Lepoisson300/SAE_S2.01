@@ -1,0 +1,62 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>80</x><y>700</y><w>100</w><h>30</h></coordinates><panel_attributes>Card</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>20</y><w>350</w><h>380</h></coordinates><panel_attributes>CardType
+--
++RequiredBuildings: Dictionary&lt;CardType, int&gt; = null
+
+--
++Equals(object): boolean
++GetHashCode(): int
+
++Name.get(): string
+~Name.set(string): void
++Kind.get(): Kind
+~Kind.set(Kind): void
++Description.get(): string
+~Description.set(string): string
++RequiredBuildings.get(): Dictionary&lt;CardType, int&gt;
+~RequiredBuildings.set(Dictionary&lt;CardType, int&gt;): void
++Effect.get(): Effect
+~Effect.set(Effect): void
++EffectCard.get(): EffectCard
+~EffectCard.set(CardType): void
++RequiredRessources.get(): Dictionary&lt;CardType, int&gt;
+~RequiredRessources.set(Dictionary&lt;CardType, int&gt;): void
++EffectRequiredCard.get(): CardType
+~EffectRequiredCard.set(CardType): void
++Unique.get(): boolean
+~Unique.set(boolean): void </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>430</y><w>210</w><h>180</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+SimpleClass
+--
+CanExchange
+DrawnOncePerTurn
+DrawFromDiscardAtOnce
+DrawnFromDiscardOncePerTurn
+OneMoreCard
+PlayAgain
+ProducesOne
+Substitute
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>430</y><w>150</w><h>120</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+GameStatus
+--
+TurnStart
+Drawing
+Playing
+Discarding
+Ended</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>610</y><w>150</w><h>110</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+Kind
+--
+Building
+Action
+Ressource</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>730</y><w>220</w><h>190</h></coordinates><panel_attributes>Player
+--
++Points: int = 0
++HandSize: int = 5
+--
++Name.get(): string
++Name.set(string): void
++Number.get(): int
++Number.set(int): void
++Points.get(): int
++Points.set(int): void
++HandSize.get(): int
++HandSize.set(int): void</panel_attributes><additional_attributes></additional_attributes></element></diagram>
