@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>10</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Card</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>50</y>
+      <w>400</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>CardType
+--
++Name: string
++Description: string
++Points: int
++Unique: boolean
++RequiredBuildings: Dictionary&lt;CardType, int&gt;
+
+--
++Equals(object): boolean
++GetHashCode(): int
+
++Name.get(): string
++Name.set(string): void
++Kind.get(): Kind
++Kind.set(Kind): void
++Description.get(): string
++Description.set(string): string
++RequiredBuildings.get(): Dictionary&lt;CardType, int&gt;
++RequiredBuildings.set(Dictionary&lt;CardType, int&gt;): void
++Effect.get(): Effect
++Effect.set(Effect): void
++EffectCard.get(): EffectCard
++EffectCard.set(CardType): void
++RequiredRessources.get(): Dictionary&lt;CardType, int&gt;
++RequiredRessources.set(Dictionary&lt;CardType, int&gt;): void
++EffectRequiredCard.get(): CardType
++EffectRequiredCard.set(CardType): void
++Unique.get(): boolean
++Unique.set(boolean): void </panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>280</y>
+      <x>140</x>
+      <y>320</y>
       <w>300</w>
       <h>140</h>
     </coordinates>
@@ -16,8 +16,7 @@ _+Generated: boolean_
 --
 _+CardTypes():Dictionary&lt;string, CardTypes&gt;_
 +GenStack():Stack&lt;Card&gt;
-_-GenTypes():void_
-</panel_attributes>
+_-GenTypes():void_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -35,7 +34,7 @@ _-GenTypes():void_
     <id>UMLPackage</id>
     <coordinates>
       <x>640</x>
-      <y>320</y>
+      <y>310</y>
       <w>130</w>
       <h>160</h>
     </coordinates>
@@ -47,16 +46,16 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>310</y>
-      <w>380</w>
-      <h>80</h>
+      <x>430</x>
+      <y>340</y>
+      <w>240</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=cardTypes
 r1=* 
 </panel_attributes>
-    <additional_attributes>360.0;50.0;10.0;10.0</additional_attributes>
+    <additional_attributes>220.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -106,26 +105,26 @@ Responsibilities
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>380</y>
-      <w>380</w>
-      <h>40</h>
+      <x>430</x>
+      <y>390</y>
+      <w>240</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;360.0;20.0</additional_attributes>
+    <additional_attributes>10.0;50.0;220.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>390</y>
-      <w>380</w>
-      <h>70</h>
+      <x>430</x>
+      <y>420</y>
+      <w>240</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;use&gt;&gt;
 </panel_attributes>
-    <additional_attributes>10.0;10.0;360.0;50.0</additional_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
   </element>
 </diagram>
