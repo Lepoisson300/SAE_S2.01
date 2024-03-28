@@ -30,7 +30,7 @@ namespace Unideckbuildduel
         public string PlayerTwoScore { get { return Game.GetGame.PlayerName(1) + " " + Game.GetGame.PlayerScore(1); } }
         /// The number of turns to go, -1 if irrelevant
         public int NumbersOfTurnsToGo { get; set; }
-        private int CurrentPlayer { get { return Game.GetGame.CurrentPlayer; } }
+        public int CurrentPlayer { get { return Game.GetGame.CurrentPlayer; } }
         private string PlayerName(int num) => Game.GetGame.PlayerName(num);
 
         public static bool gameOver = false;
@@ -64,19 +64,7 @@ namespace Unideckbuildduel
             Game.GetGame.DiscardPhaseEnded();
             Game.GetGame.Play();
         }
-        /// <summary>
-        /// Atempt to place all cards for the current player; only loops through the cards once
-        /// </summary>
-        public void PlaceAllCards()
-        {
-            int handSize = Game.GetGame.PlayerHandSize(CurrentPlayer);
-            Window.GetWindow.WriteLine("Placing all possible cards for player "+ PlayerName(CurrentPlayer));
-            for (int i=handSize-1; i>=0; i--)
-            {
-                PlayCard(CurrentPlayer, i, true);
-            }
-            EndTurn();
-        }
+
         /// <summary>
         /// Play one card (place, for buildings).
         /// </summary>

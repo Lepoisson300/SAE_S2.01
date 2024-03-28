@@ -30,17 +30,18 @@
         {
             this.quitButton = new System.Windows.Forms.Button();
             this.outputListBox = new System.Windows.Forms.ListBox();
-            this.placeAllButton = new System.Windows.Forms.Button();
             this.nextTurnButton = new System.Windows.Forms.Button();
             this.turnLabel = new System.Windows.Forms.Label();
             this.playerTwoScoreLabel = new System.Windows.Forms.Label();
             this.playerOneScoreLabel = new System.Windows.Forms.Label();
             this.replayButton = new System.Windows.Forms.Button();
+            this.DeckSize = new System.Windows.Forms.Label();
+            this.DiscardSize = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(1064, 534);
+            this.quitButton.Location = new System.Drawing.Point(1064, 520);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 0;
@@ -55,16 +56,6 @@
             this.outputListBox.Name = "outputListBox";
             this.outputListBox.Size = new System.Drawing.Size(261, 433);
             this.outputListBox.TabIndex = 1;
-            // 
-            // placeAllButton
-            // 
-            this.placeAllButton.Location = new System.Drawing.Point(1064, 505);
-            this.placeAllButton.Name = "placeAllButton";
-            this.placeAllButton.Size = new System.Drawing.Size(75, 23);
-            this.placeAllButton.TabIndex = 2;
-            this.placeAllButton.Text = "Play All";
-            this.placeAllButton.UseVisualStyleBackColor = true;
-            this.placeAllButton.Click += new System.EventHandler(this.PlaceAllButton_Click);
             // 
             // nextTurnButton
             // 
@@ -113,23 +104,43 @@
             this.replayButton.UseVisualStyleBackColor = true;
             this.replayButton.Click += new System.EventHandler(this.replayButton_Click);
             // 
+            // DeckSize
+            // 
+            this.DeckSize.AutoSize = true;
+            this.DeckSize.Location = new System.Drawing.Point(863, 486);
+            this.DeckSize.Name = "DeckSize";
+            this.DeckSize.Size = new System.Drawing.Size(35, 13);
+            this.DeckSize.TabIndex = 8;
+            this.DeckSize.Text = "label1";
+            // 
+            // DiscardSize
+            // 
+            this.DiscardSize.AutoSize = true;
+            this.DiscardSize.Location = new System.Drawing.Point(863, 525);
+            this.DiscardSize.Name = "DiscardSize";
+            this.DiscardSize.Size = new System.Drawing.Size(35, 13);
+            this.DiscardSize.TabIndex = 9;
+            this.DiscardSize.Text = "label2";
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.Controls.Add(this.DiscardSize);
+            this.Controls.Add(this.DeckSize);
             this.Controls.Add(this.replayButton);
             this.Controls.Add(this.playerOneScoreLabel);
             this.Controls.Add(this.playerTwoScoreLabel);
             this.Controls.Add(this.turnLabel);
             this.Controls.Add(this.nextTurnButton);
-            this.Controls.Add(this.placeAllButton);
             this.Controls.Add(this.outputListBox);
             this.Controls.Add(this.quitButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Window";
             this.Text = "Insert title here";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Window_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Window_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,12 +150,13 @@
 
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.ListBox outputListBox;
-        private System.Windows.Forms.Button placeAllButton;
         private System.Windows.Forms.Button nextTurnButton;
         private System.Windows.Forms.Label turnLabel;
         private System.Windows.Forms.Label playerTwoScoreLabel;
         private System.Windows.Forms.Label playerOneScoreLabel;
         private System.Windows.Forms.Button replayButton;
+        private System.Windows.Forms.Label DeckSize;
+        private System.Windows.Forms.Label DiscardSize;
     }
 }
 

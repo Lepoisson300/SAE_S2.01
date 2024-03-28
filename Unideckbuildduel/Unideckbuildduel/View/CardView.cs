@@ -52,5 +52,10 @@ namespace Unideckbuildduel.View
             g.DrawString(card.CardType.Name, ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
             //...
         }
+        
+        public Rectangle GetRectangle()
+        {
+            return Rect;
+        }
     }
 }
