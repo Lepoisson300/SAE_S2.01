@@ -22,3 +22,15 @@ Z:\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.pdb
 \\iut.bx\Etudiants\Home\allegal\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.CoreCompileInputs.cache
 \\iut.bx\Etudiants\Home\allegal\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.exe
 \\iut.bx\Etudiants\Home\allegal\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.pdb
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\bin\Debug\Unideckbuildduel.exe.config
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\bin\Debug\Unideckbuildduel.exe
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\bin\Debug\Unideckbuildduel.pdb
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.AssemblyReference.cache
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.SuggestedBindingRedirects.cache
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.Properties.Resources.resources
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.View.StartupDialog.resources
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.View.Window.resources
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.GenerateResource.cache
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.csproj.CoreCompileInputs.cache
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.exe
+Z:\Documents\S2\R2.02\SAE_S2.01\Unideckbuildduel\Unideckbuildduel\obj\Debug\Unideckbuildduel.pdb

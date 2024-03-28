@@ -33,6 +33,8 @@ namespace Unideckbuildduel
         private int CurrentPlayer { get { return Game.GetGame.CurrentPlayer; } }
         private string PlayerName(int num) => Game.GetGame.PlayerName(num);
 
+        public static bool gameOver = false;
+
         private Controller() {}
         /// <summary>
         /// Launches a new game
@@ -145,7 +147,15 @@ namespace Unideckbuildduel
                 if (NumbersOfTurnsToGo<=Game.GetGame.Turn)
                 {
                     Window.GetWindow.WriteLine("Game over");
+                    if (Game.GetGame.PlayerScore(0) == Game.GetGame.PlayerScore(1))
+                        Window.GetWindow.WriteLine("Egalité!");
+                    if (Game.GetGame.PlayerScore(0) > Game.GetGame.PlayerScore(1))
+                        Window.GetWindow.WriteLine("Le joueur " + PlayerName(0) + " a gagné!");
+                    if (Game.GetGame.PlayerScore(0) < Game.GetGame.PlayerScore(1))
+                        Window.GetWindow.WriteLine("Le joueur " + PlayerName(1) + " a gagné!");
+
                     Window.GetWindow.disableButton();
+                    gameOver = true;
                 }
             }
             else

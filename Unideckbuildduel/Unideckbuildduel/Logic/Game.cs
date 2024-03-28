@@ -149,7 +149,8 @@ namespace Unideckbuildduel.Logic
                     }
                     Controller.GetControler.TurnEnded(CurrentPlayer, Turn);
                     GameStatus = GameStatus.TurnStart;
-                    Play();
+                    if (!Controller.gameOver)
+                        Play();
                     break;
             }
         }
