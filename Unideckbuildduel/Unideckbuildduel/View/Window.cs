@@ -134,6 +134,12 @@ namespace Unideckbuildduel.View
         {
             nextTurnButton.Enabled = false;
             placeAllButton.Enabled = false;
+            replayButton.Enabled = true;
+        }
+
+        public void enableButton()
+        {
+            replayButton.Enabled = false;
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
@@ -144,10 +150,9 @@ namespace Unideckbuildduel.View
 
         private void replayButton_Click(object sender, EventArgs e)
         {
-            outputListBox.ResetText();
+            Controller.GetControler.StartEverything();
             placeAllButton.Enabled = true;
             nextTurnButton.Enabled = true;
-            Controller.GetControler.StartEverything();
         }
     }
 }

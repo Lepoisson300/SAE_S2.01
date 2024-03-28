@@ -41,6 +41,7 @@ namespace Unideckbuildduel
         /// </summary>
         public void StartEverything()
         {
+            gameOver = false;
             string playerOneName = "First";
             string playerTwoName = "Second";
             StartupDialog sd = new StartupDialog();
@@ -51,6 +52,7 @@ namespace Unideckbuildduel
                 playerTwoName = sd.Player2Name;
             }
             Window.GetWindow.WriteLine("Starting new game with " + NumbersOfTurnsToGo + " turns to go.");
+            Window.GetWindow.enableButton();
             Game.GetGame.NewGame(playerOneName, playerTwoName);
             Game.GetGame.Play();
         }
