@@ -125,15 +125,10 @@ namespace Unideckbuildduel.View
             Controller.GetControler.EndTurn();
         }
 
-        private void PlaceAllButton_Click(object sender, EventArgs e)
-        {
-            Controller.GetControler.PlaceAllCards();
-        }
 
         public void disableButton()
         {
             nextTurnButton.Enabled = false;
-            placeAllButton.Enabled = false;
             replayButton.Enabled = true;
         }
 
@@ -151,8 +146,28 @@ namespace Unideckbuildduel.View
         private void replayButton_Click(object sender, EventArgs e)
         {
             Controller.GetControler.StartEverything();
-            placeAllButton.Enabled = true;
             nextTurnButton.Enabled = true;
+        }
+
+        public int SelectCard(Point loc)
+        {
+            int num = -1;
+            foreach (CardView c in cardViews)
+            {
+                if (c.GetRectangle().Contains(loc))
+                    num = c.CardNum;
+            }
+            return num;
+        }
+
+        private void Window_MouseDown(object sender, MouseEventArgs e)
+        {
+            int num = SelectCard(e.Location);
+            Controller c = Controller.GetControler;
+            if (num != -1)
+            {
+                c.PlayCard(c.CurrentPlayer, num);
+            }
         }
     }
 }

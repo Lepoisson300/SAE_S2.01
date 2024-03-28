@@ -16,6 +16,7 @@ namespace Unideckbuildduel.Logic
         private List<Player> players;
         private Dictionary<Player, List<Card>> cards;
         private Dictionary<Player, List<Card>> buildings;
+        private Dictionary<Player, List<Card>> discards;
 
         /// <summary>
         /// A reference to the single instance of this class
@@ -42,11 +43,13 @@ namespace Unideckbuildduel.Logic
             commonDeck = LoadData.GenStack();
             players = new List<Player> { new Player { Name = playerOneName }, new Player { Name = playerTwoName } };
             cards = new Dictionary<Player, List<Card>>();
+            discards = new Dictionary<Player, List<Card>>();
             buildings = new Dictionary<Player, List<Card>>();
             foreach (Player p in players)
             {
                 p.Number = players.IndexOf(p);
                 cards.Add(p, new List<Card>());
+                discards.Add(p, new List<Card>());
                 buildings.Add(p, new List<Card>());
             }
             GameStatus = GameStatus.TurnStart;
