@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
-      <y>70</y>
+      <x>343</x>
+      <y>133</y>
       <w>245</w>
-      <h>308</h>
+      <h>315</h>
     </coordinates>
     <panel_attributes>CardType
 --
@@ -42,10 +42,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>77</x>
-      <y>357</y>
+      <x>735</x>
+      <y>595</y>
       <w>105</w>
-      <h>91</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 GameStatus
@@ -60,8 +60,8 @@ Ended</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>385</y>
+      <x>742</x>
+      <y>504</y>
       <w>105</w>
       <h>77</h>
     </coordinates>
@@ -76,10 +76,10 @@ Ressource</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>294</x>
+      <x>707</x>
       <y>707</y>
       <w>154</w>
-      <h>133</h>
+      <h>147</h>
     </coordinates>
     <panel_attributes>Player
 --
@@ -99,10 +99,10 @@ Ressource</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>84</y>
+      <x>665</x>
+      <y>350</y>
       <w>147</w>
-      <h>63</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Card
 --
@@ -114,8 +114,8 @@ Ressource</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
-      <y>203</y>
+      <x>672</x>
+      <y>126</y>
       <w>147</w>
       <h>133</h>
     </coordinates>
@@ -131,5 +131,281 @@ PlayAgain
 ProducesOne
 Substitute</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>343</x>
+      <y>532</y>
+      <w>238</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>Game
+--
+_+GetGame:Game_
+--
+_+GetGame.get():Game_
++Turn.get():int
++Turn.set(int):void
++GameStatus.get():GameStatus
++GameStatus.set(GameStatus):void
++CurrentPlater.get():int
++CurrentPlater.set(int):void
+-Game()
++NewGame(string,string):void
++DiscardPhaseEnded():void
++PlayCard(int,int):(string,bool)
+-PlayCard(int,Card):(string,bool)
+_-NumberOfCardsPresent(List&lt;Card&gt;,CardType):int_
++Play():void
++DiscardCard(int,int):bool
+-DiscardCard(int,Card):bool
++DrawOneCard(int):Card
++DrawPhaseEnded():void
++PlayerName(int):string
++PlayerScore(int):int
++PlayerHandSize(int):int
++PlayerCardCount(int):int
+
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>441</y>
+      <w>49</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>399</y>
+      <w>147</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>581</x>
+      <y>378</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>784</y>
+      <w>147</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>581</x>
+      <y>210</y>
+      <w>105</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>644</y>
+      <w>175</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>553</y>
+      <w>182</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>63</x>
+      <y>161</y>
+      <w>133</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>View
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>182</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>BuildingView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>210</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>CardView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>238</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>StartupDialog</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>266</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>ViawSettings</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>294</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Windows</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>98</x>
+      <y>497</y>
+      <w>133</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>GameData
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>518</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>LoadData
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>98</x>
+      <y>644</y>
+      <w>133</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>EmptyPackage
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>665</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Controller</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>693</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Program</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>651</y>
+      <w>182</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;30.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>518</y>
+      <w>182</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;100.0</additional_attributes>
   </element>
 </diagram>
