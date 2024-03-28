@@ -88,7 +88,7 @@
             // playerTwoScoreLabel
             // 
             this.playerTwoScoreLabel.AutoSize = true;
-            this.playerTwoScoreLabel.Location = new System.Drawing.Point(967, 528);
+            this.playerTwoScoreLabel.Location = new System.Drawing.Point(967, 525);
             this.playerTwoScoreLabel.Name = "playerTwoScoreLabel";
             this.playerTwoScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerTwoScoreLabel.TabIndex = 5;
@@ -111,6 +111,7 @@
             this.replayButton.TabIndex = 7;
             this.replayButton.Text = "Restart";
             this.replayButton.UseVisualStyleBackColor = true;
+            this.replayButton.Click += new System.EventHandler(this.replayButton_Click);
             // 
             // Window
             // 

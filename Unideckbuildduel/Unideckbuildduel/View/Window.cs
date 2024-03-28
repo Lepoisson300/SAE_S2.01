@@ -141,5 +141,12 @@ namespace Unideckbuildduel.View
             Application.Exit();
         }
         #endregion
+
+        private void replayButton_Click(object sender, EventArgs e)
+        {
+            placeAllButton.Enabled = true;
+            nextTurnButton.Enabled = true;
+            Controller.GetControler.StartEverything();
+        }
     }
 }
