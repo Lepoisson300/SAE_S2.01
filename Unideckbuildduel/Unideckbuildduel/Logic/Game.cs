@@ -41,7 +41,7 @@ namespace Unideckbuildduel.Logic
         public void NewGame(string playerOneName, string playerTwoName)
         {
             commonDeck = LoadData.GenStack();
-            discardStack = LoadData.GenStack();
+            discardStack = new Stack<Card>();
             players = new List<Player> { new Player { Name = playerOneName }, new Player { Name = playerTwoName } };
             cards = new Dictionary<Player, List<Card>>();
             buildings = new Dictionary<Player, List<Card>>();
@@ -216,6 +216,14 @@ namespace Unideckbuildduel.Logic
                     break;
             }
         }
+
+        public void NextPhase()
+        {
+            if (GameStatus == GameStatus.Playing)
+                GameStatus = GameStatus.Discarding;
+            Play();
+        }
+
         /// <summary>
         /// Method called to discard a specific card.
         /// </summary>
@@ -230,7 +238,10 @@ namespace Unideckbuildduel.Logic
         private bool DiscardCard(int playerNum, Card card)
         {
             if (card == null) { return false; }
-            return cards[players[playerNum]].Remove(card);
+            discardStack.Push(card);
+            bool res =  cards[players[playerNum]].Remove(card);
+            Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
+            return res;
         }
         /// <summary>
         /// Draw one card for a player from the deck
