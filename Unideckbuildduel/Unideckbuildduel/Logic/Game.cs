@@ -12,11 +12,11 @@ namespace Unideckbuildduel.Logic
     /// </summary>
     public class Game
     {
-        private Stack<Card> commonDeck;
+        public Stack<Card> commonDeck;
+        public Stack<Card> discardStack;
         private List<Player> players;
         private Dictionary<Player, List<Card>> cards;
         private Dictionary<Player, List<Card>> buildings;
-        private Dictionary<Player, List<Card>> discards;
 
         /// <summary>
         /// A reference to the single instance of this class
@@ -41,15 +41,14 @@ namespace Unideckbuildduel.Logic
         public void NewGame(string playerOneName, string playerTwoName)
         {
             commonDeck = LoadData.GenStack();
+            discardStack = LoadData.GenStack();
             players = new List<Player> { new Player { Name = playerOneName }, new Player { Name = playerTwoName } };
             cards = new Dictionary<Player, List<Card>>();
-            discards = new Dictionary<Player, List<Card>>();
             buildings = new Dictionary<Player, List<Card>>();
             foreach (Player p in players)
             {
                 p.Number = players.IndexOf(p);
                 cards.Add(p, new List<Card>());
-                discards.Add(p, new List<Card>());
                 buildings.Add(p, new List<Card>());
             }
             GameStatus = GameStatus.TurnStart;
@@ -81,9 +80,12 @@ namespace Unideckbuildduel.Logic
             {
                 case Kind.Building:
                     var reqBs = card.CardType.RequiredBuildings;
+                    var reqRs = card.CardType.RequiredRessources;
+
+                    bool reqBok = true;
+                    bool reqRok = true;
                     if (reqBs != null && reqBs.Count > 0)
                     {
-                        bool reqBok = true;
                         foreach (CardType b in reqBs.Keys)
                         {
                             int presB = NumberOfCardsPresent(buildings[players[playerNum]], b);
@@ -92,11 +94,57 @@ namespace Unideckbuildduel.Logic
                                 reqBok = false;
                             }
                         }
-                        if (!reqBok)
+
+                    }
+                    if (reqRs != null && reqRs.Count > 0)
+                    {
+                        foreach (CardType r in reqRs.Keys)
                         {
-                            return ("Not enough required buildings", false);
+                            int presR = NumberOfCardsPresent(cards[players[playerNum]], r);
+                            if (presR < reqRs[r])
+                            {
+                                reqRok = false;
+                            }
                         }
                     }
+                    if (!reqBok)
+                    {
+                        return ("Not enough required buildings", false);
+                    }
+                    else if (!reqRok)
+                    {
+                        return ("Not enough required ressources", false);
+                    }
+
+                    if (reqRs != null && reqRs.Count > 0)
+                    {
+                        foreach(CardType r in reqRs.Keys)
+                        {
+                            int num = 0;
+                            int i = 0;
+                            while (i<cards[players[playerNum]].Count && num < reqRs[r])
+                            {
+                                if (cards[players[playerNum]][i].CardType.Equals(r))
+                                {
+                                    cards[players[playerNum]].Remove(cards[players[playerNum]][i]);
+                                    discardStack.Push(cards[players[playerNum]][i]);
+                                    num++;
+                                }
+                                i++;
+                            }
+                        }
+                    }
+
+                    if (commonDeck.Count == 0 && discardStack.Count != 0)
+                    {
+                        discardStack = Shuffle(discardStack);
+                        while(discardStack.Count > 0)
+                        {
+                            Card c = discardStack.Pop();
+                            commonDeck.Push(c);
+                        }
+                    }
+
                     buildings[players[playerNum]].Add(card);
                     cards[players[playerNum]].Remove(card);
                     players[playerNum].Points += card.CardType.Points;
@@ -107,6 +155,17 @@ namespace Unideckbuildduel.Logic
                     return ("Card type not handled yet", false);
             }
         }
+
+        public static Stack<Card> Shuffle(Stack<Card> stack)
+        {
+            Random rng = new Random();
+            var values = stack.ToArray();
+            stack.Clear();
+            foreach (var value in values.OrderBy(x => rng.Next()))
+                stack.Push(value);
+            return stack;
+        }
+
         private static int NumberOfCardsPresent(List<Card> cards, CardType type)
         {
             if (cards == null || cards.Count == 0 || type == null)

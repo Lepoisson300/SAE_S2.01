@@ -118,6 +118,8 @@ namespace Unideckbuildduel.View
             playerOneScoreLabel.Text = Controller.GetControler.NumberOfTurns;
             playerTwoScoreLabel.Text = Controller.GetControler.PlayerOneScore;
             turnLabel.Text = Controller.GetControler.PlayerTwoScore;
+            DiscardSize.Text = "" + Game.GetGame.discardStack.Count;
+            DeckSize.Text = "" + Game.GetGame.discardStack.Count;
         }
 
         private void NextTurnButton_Click(object sender, EventArgs e)

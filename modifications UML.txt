@@ -12,4 +12,6 @@ classe controller :
 	supression de la fonction PlaceAllCards
 
 classe Game:
-	ajout de l'attribut discards
+	ajout de l'attribut discardStack
+	ajout de la fonction shuffle
+	attribut commonDeck devient public (précedemment privé)
