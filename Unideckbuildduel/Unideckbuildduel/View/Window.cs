@@ -25,6 +25,8 @@ namespace Unideckbuildduel.View
         private Point playerTwoBuildingStart;
         private Point playerOneBuildingCurrent;
         private Point playerTwoBuildingCurrent;
+        public bool nextButtonState;
+
         /// <summary>
         /// A reference to the single instance of this class
         /// </summary>
@@ -45,6 +47,7 @@ namespace Unideckbuildduel.View
             playerTwoBuildingStart = new Point(25, 370);
             playerOneBuildingCurrent=playerOneBuildingStart;
             playerTwoBuildingCurrent=playerTwoBuildingStart;
+            nextButtonState = true;
 
         }
         /// <summary>
@@ -120,11 +123,23 @@ namespace Unideckbuildduel.View
             turnLabel.Text = Controller.GetControler.PlayerTwoScore;
             DiscardSize.Text = "Taille de la défausse : " + Game.GetGame.discardStack.Count;
             DeckSize.Text = "Taille de la pioche : " + Game.GetGame.commonDeck.Count;
+            if (nextButtonState)
+                nextTurnButton.Text = "Next Turn";
+            else
+                nextTurnButton.Text = "Next Phase";
         }
 
         private void NextTurnButton_Click(object sender, EventArgs e)
         {
-            Controller.GetControler.EndTurn();
+            if (nextButtonState)
+            {
+                Controller.GetControler.EndTurn();
+            }
+            else
+            {
+                Game.GetGame.NextPhase();
+            }
+            Refresh();
         }
 
 
@@ -139,11 +154,6 @@ namespace Unideckbuildduel.View
             replayButton.Enabled = false;
         }
 
-        public void changePhaseButton()
-        {
-            nextPhaseButton.Enabled = !nextPhaseButton.Enabled;
-        }
-
         private void QuitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -154,6 +164,8 @@ namespace Unideckbuildduel.View
         {
             Controller.GetControler.StartEverything();
             nextTurnButton.Enabled = true;
+            buildingViews.Clear();
+            Refresh();
         }
 
         public int SelectCard(Point loc)
@@ -182,12 +194,6 @@ namespace Unideckbuildduel.View
                     c.DiscardCard(c.CurrentPlayer, num);
                 }
             }
-        }
-
-        private void nextPhaseButton_Click(object sender, EventArgs e)
-        {
-            changePhaseButton();
-            Game.GetGame.NextPhase();
         }
     }
 }

@@ -37,7 +37,6 @@
             this.replayButton = new System.Windows.Forms.Button();
             this.DeckSize = new System.Windows.Forms.Label();
             this.DiscardSize = new System.Windows.Forms.Label();
-            this.nextPhaseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // quitButton
@@ -123,23 +122,11 @@
             this.DiscardSize.TabIndex = 9;
             this.DiscardSize.Text = "label2";
             // 
-            // nextPhaseButton
-            // 
-            this.nextPhaseButton.Enabled = false;
-            this.nextPhaseButton.Location = new System.Drawing.Point(1167, 488);
-            this.nextPhaseButton.Name = "nextPhaseButton";
-            this.nextPhaseButton.Size = new System.Drawing.Size(75, 23);
-            this.nextPhaseButton.TabIndex = 10;
-            this.nextPhaseButton.Text = "Next Phase";
-            this.nextPhaseButton.UseVisualStyleBackColor = true;
-            this.nextPhaseButton.Click += new System.EventHandler(this.nextPhaseButton_Click);
-            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1312, 611);
-            this.Controls.Add(this.nextPhaseButton);
             this.Controls.Add(this.DiscardSize);
             this.Controls.Add(this.DeckSize);
             this.Controls.Add(this.replayButton);
@@ -170,7 +157,6 @@
         private System.Windows.Forms.Button replayButton;
         private System.Windows.Forms.Label DeckSize;
         private System.Windows.Forms.Label DiscardSize;
-        private System.Windows.Forms.Button nextPhaseButton;
     }
 }
 

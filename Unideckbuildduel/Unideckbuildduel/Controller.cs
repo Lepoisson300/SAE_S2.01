@@ -33,7 +33,7 @@ namespace Unideckbuildduel
         public int CurrentPlayer { get { return Game.GetGame.CurrentPlayer; } }
         private string PlayerName(int num) => Game.GetGame.PlayerName(num);
 
-        public static bool gameOver = false;
+        public static bool gameOver = true;
 
         private Controller() {}
         /// <summary>
@@ -85,6 +85,7 @@ namespace Unideckbuildduel
                     Window.GetWindow.WriteLine("Card " + cardNum + " played and removed from the hand of player " + PlayerName(playerNum));
                     Window.GetWindow.Refresh();
                 }
+
             }
         }
         /// <summary>
@@ -124,6 +125,7 @@ namespace Unideckbuildduel
         public void DiscardStart(int currentPlayer)
         {
             Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please discard your cards or finish your turn");
+            Window.GetWindow.nextButtonState = true;
         }
         /// <summary>
         /// Feedback when the turn is ended for a player
@@ -158,7 +160,7 @@ namespace Unideckbuildduel
         public void PlayPhaseStart(int currentPlayer)
         {
             Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please play your cards, change phase or end your turn");
-            Window.GetWindow.changePhaseButton();
+            Window.GetWindow.nextButtonState = false;
         }
         /// <summary>
         /// Displays the hand of the player in the window
@@ -187,11 +189,6 @@ namespace Unideckbuildduel
             {
                 Window.GetWindow.WriteLine("Discard problem");
             }
-        }
-
-        public void changePhaseButton()
-        {
-            Window.GetWindow.changePhaseButton();
         }
     }
 }

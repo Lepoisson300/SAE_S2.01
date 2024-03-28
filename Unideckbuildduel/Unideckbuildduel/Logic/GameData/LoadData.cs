@@ -285,6 +285,7 @@ namespace Unideckbuildduel.Logic.GameData
             for (int i = 0; i < 0; i++) list.Add(new Card { CardType = cardTypes["A-List Publication"] });
             for (int i = 0; i < 30; i++) list.Add(new Card { CardType = cardTypes["Faculty Lounge"] });
             for (int i = 0; i < 30; i++) list.Add(new Card { CardType = cardTypes["Research Lab"] });
+            for (int i = 0; i < 30; i++) list.Add(new Card { CardType = cardTypes["Official Visit"] });
 
             Random random = new Random();
             for (int i = list.Count - 1; i > 0; i--)

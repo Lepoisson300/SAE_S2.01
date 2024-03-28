@@ -126,8 +126,8 @@ namespace Unideckbuildduel.Logic
                             {
                                 if (cards[players[playerNum]][i].CardType.Equals(r))
                                 {
-                                    cards[players[playerNum]].Remove(cards[players[playerNum]][i]);
                                     discardStack.Push(cards[players[playerNum]][i]);
+                                    cards[players[playerNum]].Remove(cards[players[playerNum]][i]);
                                     num++;
                                 }
                                 i++;
@@ -149,6 +149,12 @@ namespace Unideckbuildduel.Logic
                     cards[players[playerNum]].Remove(card);
                     players[playerNum].Points += card.CardType.Points;
                     Controller.GetControler.NewBuilding(playerNum, card);
+                    Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
+                    return (null, true);
+                    
+                case Kind.Action:
+                    discardStack.Push(card);
+                    cards[players[playerNum]].Remove(card);
                     Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
                     return (null, true);
                 default:
