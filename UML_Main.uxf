@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>189</y>
+      <w>216</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>Controllers
+--
+_+gameOver_
+--
+_+GetControler.get():Controller_
++NumberOfTurns.get():string
++playerOneScorer.get():string
++playerTwoScorer.get():string
++NumbersOfTurnsToGo.get:int
++NumbersOfTurnsToGo.set(int):void
+-CurrentPlayer.get:int
+-Controller()
+-PlayerName(int):string
++StartEverything():void
++EndTurn():void
++PlaceAllCards():void
++PlayCard(int,int,boolean):void
++NewBuilding(int,Card)
++DrawStart(int):void
++DiscardStart(int):void
++TurnEnded(int,int):void
++PlayPhaseStart(int):void
++DisplayHand(int,List&lt;Caerd&gt;):void
++DiscardCard(int,int):void
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>576</y>
+      <w>81</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Program
+--
+--
+_+Main():void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>387</x>
+      <y>90</y>
+      <w>171</w>
+      <h>333</h>
+    </coordinates>
+    <panel_attributes>Logic
+--
+bg=orange
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>126</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>LoadData
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>162</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Cards</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>198</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>CardType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>234</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Effect</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>270</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Game
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>306</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>GameStatus</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>342</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Kind
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>378</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Players</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>369</x>
+      <y>450</y>
+      <w>171</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>View
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>477</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>BuildingView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>513</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>CardView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>549</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>StartupDialog</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>585</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>ViawSettings</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>621</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Windows</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>171</x>
+      <y>522</y>
+      <w>63</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>216</x>
+      <y>621</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>468</y>
+      <w>108</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>162</y>
+      <w>126</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>279</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>198</y>
+      <w>126</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>441</y>
+      <w>108</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;130.0</additional_attributes>
+  </element>
+</diagram>
