@@ -11,6 +11,7 @@
     </coordinates>
     <panel_attributes>Controllers
 --
+_+gameOver_
 --
 _+GetControler.get():Controller_
 +NumberOfTurns.get():string
