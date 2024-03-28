@@ -144,6 +144,7 @@ namespace Unideckbuildduel.View
 
         private void replayButton_Click(object sender, EventArgs e)
         {
+            outputListBox.ResetText();
             placeAllButton.Enabled = true;
             nextTurnButton.Enabled = true;
             Controller.GetControler.StartEverything();
