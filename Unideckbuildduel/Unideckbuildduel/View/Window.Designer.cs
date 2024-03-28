@@ -37,11 +37,12 @@
             this.replayButton = new System.Windows.Forms.Button();
             this.DeckSize = new System.Windows.Forms.Label();
             this.DiscardSize = new System.Windows.Forms.Label();
+            this.nextPhaseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(1064, 520);
+            this.quitButton.Location = new System.Drawing.Point(1167, 547);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 0;
@@ -52,14 +53,14 @@
             // outputListBox
             // 
             this.outputListBox.FormattingEnabled = true;
-            this.outputListBox.Location = new System.Drawing.Point(914, 28);
+            this.outputListBox.Location = new System.Drawing.Point(1017, 30);
             this.outputListBox.Name = "outputListBox";
             this.outputListBox.Size = new System.Drawing.Size(261, 433);
             this.outputListBox.TabIndex = 1;
             // 
             // nextTurnButton
             // 
-            this.nextTurnButton.Location = new System.Drawing.Point(1064, 476);
+            this.nextTurnButton.Location = new System.Drawing.Point(1167, 517);
             this.nextTurnButton.Name = "nextTurnButton";
             this.nextTurnButton.Size = new System.Drawing.Size(75, 23);
             this.nextTurnButton.TabIndex = 3;
@@ -70,7 +71,7 @@
             // turnLabel
             // 
             this.turnLabel.AutoSize = true;
-            this.turnLabel.Location = new System.Drawing.Point(967, 561);
+            this.turnLabel.Location = new System.Drawing.Point(1070, 563);
             this.turnLabel.Name = "turnLabel";
             this.turnLabel.Size = new System.Drawing.Size(35, 13);
             this.turnLabel.TabIndex = 4;
@@ -79,7 +80,7 @@
             // playerTwoScoreLabel
             // 
             this.playerTwoScoreLabel.AutoSize = true;
-            this.playerTwoScoreLabel.Location = new System.Drawing.Point(967, 525);
+            this.playerTwoScoreLabel.Location = new System.Drawing.Point(1070, 527);
             this.playerTwoScoreLabel.Name = "playerTwoScoreLabel";
             this.playerTwoScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerTwoScoreLabel.TabIndex = 5;
@@ -88,7 +89,7 @@
             // playerOneScoreLabel
             // 
             this.playerOneScoreLabel.AutoSize = true;
-            this.playerOneScoreLabel.Location = new System.Drawing.Point(967, 486);
+            this.playerOneScoreLabel.Location = new System.Drawing.Point(1070, 488);
             this.playerOneScoreLabel.Name = "playerOneScoreLabel";
             this.playerOneScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerOneScoreLabel.TabIndex = 6;
@@ -96,7 +97,7 @@
             // 
             // replayButton
             // 
-            this.replayButton.Location = new System.Drawing.Point(1064, 565);
+            this.replayButton.Location = new System.Drawing.Point(1167, 576);
             this.replayButton.Name = "replayButton";
             this.replayButton.Size = new System.Drawing.Size(75, 23);
             this.replayButton.TabIndex = 7;
@@ -107,7 +108,7 @@
             // DeckSize
             // 
             this.DeckSize.AutoSize = true;
-            this.DeckSize.Location = new System.Drawing.Point(863, 486);
+            this.DeckSize.Location = new System.Drawing.Point(904, 488);
             this.DeckSize.Name = "DeckSize";
             this.DeckSize.Size = new System.Drawing.Size(35, 13);
             this.DeckSize.TabIndex = 8;
@@ -116,17 +117,29 @@
             // DiscardSize
             // 
             this.DiscardSize.AutoSize = true;
-            this.DiscardSize.Location = new System.Drawing.Point(863, 525);
+            this.DiscardSize.Location = new System.Drawing.Point(904, 527);
             this.DiscardSize.Name = "DiscardSize";
             this.DiscardSize.Size = new System.Drawing.Size(35, 13);
             this.DiscardSize.TabIndex = 9;
             this.DiscardSize.Text = "label2";
             // 
+            // nextPhaseButton
+            // 
+            this.nextPhaseButton.Enabled = false;
+            this.nextPhaseButton.Location = new System.Drawing.Point(1167, 488);
+            this.nextPhaseButton.Name = "nextPhaseButton";
+            this.nextPhaseButton.Size = new System.Drawing.Size(75, 23);
+            this.nextPhaseButton.TabIndex = 10;
+            this.nextPhaseButton.Text = "Next Phase";
+            this.nextPhaseButton.UseVisualStyleBackColor = true;
+            this.nextPhaseButton.Click += new System.EventHandler(this.nextPhaseButton_Click);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 600);
+            this.ClientSize = new System.Drawing.Size(1312, 611);
+            this.Controls.Add(this.nextPhaseButton);
             this.Controls.Add(this.DiscardSize);
             this.Controls.Add(this.DeckSize);
             this.Controls.Add(this.replayButton);
@@ -157,6 +170,7 @@
         private System.Windows.Forms.Button replayButton;
         private System.Windows.Forms.Label DeckSize;
         private System.Windows.Forms.Label DiscardSize;
+        private System.Windows.Forms.Button nextPhaseButton;
     }
 }
 

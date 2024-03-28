@@ -118,8 +118,8 @@ namespace Unideckbuildduel.View
             playerOneScoreLabel.Text = Controller.GetControler.NumberOfTurns;
             playerTwoScoreLabel.Text = Controller.GetControler.PlayerOneScore;
             turnLabel.Text = Controller.GetControler.PlayerTwoScore;
-            DiscardSize.Text = "" + Game.GetGame.discardStack.Count;
-            DeckSize.Text = "" + Game.GetGame.discardStack.Count;
+            DiscardSize.Text = "Taille de la défausse : " + Game.GetGame.discardStack.Count;
+            DeckSize.Text = "Taille de la pioche : " + Game.GetGame.commonDeck.Count;
         }
 
         private void NextTurnButton_Click(object sender, EventArgs e)
@@ -137,6 +137,11 @@ namespace Unideckbuildduel.View
         public void enableButton()
         {
             replayButton.Enabled = false;
+        }
+
+        public void changePhaseButton()
+        {
+            nextPhaseButton.Enabled = !nextPhaseButton.Enabled;
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
@@ -168,8 +173,21 @@ namespace Unideckbuildduel.View
             Controller c = Controller.GetControler;
             if (num != -1)
             {
-                c.PlayCard(c.CurrentPlayer, num);
+                if (Game.GetGame.GameStatus == GameStatus.Playing)
+                {
+                    c.PlayCard(c.CurrentPlayer, num);
+                }
+                else if (Game.GetGame.GameStatus == GameStatus.Discarding)
+                {
+                    c.DiscardCard(c.CurrentPlayer, num);
+                }
             }
+        }
+
+        private void nextPhaseButton_Click(object sender, EventArgs e)
+        {
+            changePhaseButton();
+            Game.GetGame.NextPhase();
         }
     }
 }

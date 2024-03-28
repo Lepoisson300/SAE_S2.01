@@ -157,7 +157,8 @@ namespace Unideckbuildduel
         /// <param name="currentPlayer">The number of the player</param>
         public void PlayPhaseStart(int currentPlayer)
         {
-            Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please play your cards or finish your turn");
+            Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please play your cards, change phase or end your turn");
+            Window.GetWindow.changePhaseButton();
         }
         /// <summary>
         /// Displays the hand of the player in the window
@@ -186,6 +187,11 @@ namespace Unideckbuildduel
             {
                 Window.GetWindow.WriteLine("Discard problem");
             }
+        }
+
+        public void changePhaseButton()
+        {
+            Window.GetWindow.changePhaseButton();
         }
     }
 }
