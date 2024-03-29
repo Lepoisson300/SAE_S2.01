@@ -41,7 +41,7 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(1167, 547);
+            this.quitButton.Location = new System.Drawing.Point(1167, 527);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             // nextTurnButton
             // 
-            this.nextTurnButton.Location = new System.Drawing.Point(1167, 517);
+            this.nextTurnButton.Location = new System.Drawing.Point(1167, 488);
             this.nextTurnButton.Name = "nextTurnButton";
             this.nextTurnButton.Size = new System.Drawing.Size(75, 23);
             this.nextTurnButton.TabIndex = 3;
@@ -96,7 +96,8 @@
             // 
             // replayButton
             // 
-            this.replayButton.Location = new System.Drawing.Point(1167, 576);
+            this.replayButton.Enabled = false;
+            this.replayButton.Location = new System.Drawing.Point(1167, 563);
             this.replayButton.Name = "replayButton";
             this.replayButton.Size = new System.Drawing.Size(75, 23);
             this.replayButton.TabIndex = 7;

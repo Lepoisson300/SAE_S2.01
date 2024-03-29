@@ -52,7 +52,6 @@ namespace Unideckbuildduel
                 playerTwoName = sd.Player2Name;
             }
             Window.GetWindow.WriteLine("Starting new game with " + NumbersOfTurnsToGo + " turns to go.");
-            Window.GetWindow.enableButton();
             Game.GetGame.NewGame(playerOneName, playerTwoName);
             Game.GetGame.Play();
         }

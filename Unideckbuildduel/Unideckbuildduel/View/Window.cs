@@ -149,10 +149,6 @@ namespace Unideckbuildduel.View
             replayButton.Enabled = true;
         }
 
-        public void enableButton()
-        {
-            replayButton.Enabled = false;
-        }
 
         private void QuitButton_Click(object sender, EventArgs e)
         {
@@ -164,7 +160,17 @@ namespace Unideckbuildduel.View
         {
             Controller.GetControler.StartEverything();
             nextTurnButton.Enabled = true;
-            buildingViews.Clear();
+            replayButton.Enabled = false;
+            buildingViews[0].Clear();
+            buildingViews[1].Clear();
+
+            playerOneCardStart = new Point(10, 10);
+            playerTwoCardStart = new Point(10, 500);
+            playerOneBuildingStart = new Point(25, 190);
+            playerTwoBuildingStart = new Point(25, 370);
+            playerOneBuildingCurrent = playerOneBuildingStart;
+            playerTwoBuildingCurrent = playerTwoBuildingStart;
+
             Refresh();
         }
 
