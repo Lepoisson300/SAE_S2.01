@@ -5,5 +5,15 @@ classe Game:
 	ajout attribut listDict
 	ajout attribut effectDictP1
 	ajout attribut effectDictP2
+	buildings devient public
+	cards devient public
+	players devient public
+	ajout fonction drawFromDeck
 
-Compteur de la taille de la pioche semble être légèrement disfonctionnel.
+classe Window:
+	ajout fonction DrawOncePerTurn_Click
+	ajout fonction drawOncePerTurnChange
+	ajout fonction affichageEffect
+	Compteur de la taille de la pioche semble être légèrement disfonctionnel.
+	ajout fonction DrawFromDiscardButton_Click
+	ajout fonction drawFromDiscardChange

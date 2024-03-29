@@ -12,7 +12,7 @@ réalisation 21:
 Ajout de la fonction "SelectCard" et "Window_MouseDown" pour jouer les cartes.
 
 réalisation 22:
-Suppression du bouton "palce all" ainsi que de sa fonction lié "PlaceAllButtonClick".
+Suppression du bouton "place all" ainsi que de sa fonction lié "PlaceAllButtonClick".
 
 
 2.14
@@ -42,8 +42,6 @@ Permet de jouer les carte de type action même si pour le moment elles n'ont auc
 
 
 2.18
-réalisation 29:
-Ajout des effets et des actions aux cartes.
 
 
 2.19

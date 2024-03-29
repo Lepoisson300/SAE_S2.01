@@ -127,6 +127,39 @@ namespace Unideckbuildduel.View
                 nextTurnButton.Text = "Next Turn";
             else
                 nextTurnButton.Text = "Next Phase";
+            if (Game.GetGame.listDict[Game.GetGame.CurrentPlayer][Effect.DrawOncePerTurn])
+            {
+                drawOncePerTurn.Visible = true;
+                drawOncePerTurn.Enabled = true;
+            }
+            else
+            {
+                drawOncePerTurn.Visible = false;
+                drawOncePerTurn.Enabled = false;
+            }
+            if (Game.GetGame.listDict[Game.GetGame.CurrentPlayer][Effect.DrawFromDiscardOncePerTurn])
+            {
+                DrawFromDiscardButton.Visible = true;
+                DrawFromDiscardButton.Enabled = true;
+            }
+            else
+            {
+                DrawFromDiscardButton.Visible = false;
+                DrawFromDiscardButton.Enabled = false;
+            }
+            affichageEffect();
+        }
+
+        private void affichageEffect()
+        {
+            ActiveEffectListBox.Items.Clear();
+            ActiveEffectListBox.Items.Add("List des Effets actifs");
+            Game g = Game.GetGame;
+            foreach (Effect? e in g.listDict[g.CurrentPlayer].Keys)
+            {
+                if (g.listDict[g.CurrentPlayer][e])
+                    ActiveEffectListBox.Items.Add(e.ToString());
+            }
         }
 
         private void NextTurnButton_Click(object sender, EventArgs e)
@@ -215,6 +248,49 @@ namespace Unideckbuildduel.View
                     c.DiscardCard(c.CurrentPlayer, num);
                 }
             }
+        }
+
+        private void drawOncePerTurn_Click(object sender, EventArgs e)
+        {
+            drawOncePerTurnChange();
+            Game.GetGame.listDict[Game.GetGame.CurrentPlayer][Effect.DrawOncePerTurn] = false;
+            Controller c = Controller.GetControler;
+            Game g = Game.GetGame;
+            foreach(Card ca in g.buildings[g.players[g.CurrentPlayer]])
+            {
+                if (ca.CardType.Effect == Effect.DrawOncePerTurn)
+                {
+                    Game.GetGame.drawFromDeck(ca.CardType.EffectCard.Name);
+                }
+            }
+            Refresh();
+
+        }
+
+        public void drawOncePerTurnChange()
+        {
+            drawOncePerTurn.Enabled = !drawOncePerTurn.Enabled;
+        }
+
+        private void DrawFromDiscardButton_Click(object sender, EventArgs e)
+        {
+            drawFromDiscardChange();
+            Game.GetGame.listDict[Game.GetGame.CurrentPlayer][Effect.DrawFromDiscardOncePerTurn] = false;
+            Controller c = Controller.GetControler;
+            Game g = Game.GetGame;
+            foreach (Card ca in g.buildings[g.players[g.CurrentPlayer]])
+            {
+                if (ca.CardType.Effect == Effect.DrawFromDiscardOncePerTurn)
+                {
+                    Game.GetGame.drawFromDiscard(ca.CardType.EffectCard.Name);
+                }
+            }
+            Refresh();
+        }
+
+        public void drawFromDiscardChange()
+        {
+            DrawFromDiscardButton.Enabled = !DrawFromDiscardButton.Enabled;
         }
     }
 }

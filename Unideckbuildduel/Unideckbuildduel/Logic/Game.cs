@@ -15,9 +15,9 @@ namespace Unideckbuildduel.Logic
     {
         public Stack<Card> commonDeck;
         public Stack<Card> discardStack;
-        private List<Player> players;
-        private Dictionary<Player, List<Card>> cards;
-        private Dictionary<Player, List<Card>> buildings;
+        public List<Player> players;
+        public Dictionary<Player, List<Card>> cards;
+        public Dictionary<Player, List<Card>> buildings;
 
         /// <summary>
         /// A reference to the single instance of this class
@@ -202,9 +202,18 @@ namespace Unideckbuildduel.Logic
             { 
                 case Effect.OneMoreCard:
                     {
-                        players[CurrentPlayer].HandSize++;
+                        if (players[CurrentPlayer].HandSize != 6)
+                            players[CurrentPlayer].HandSize++;
                         break;
                     }
+                case Effect.PlayAgain:
+                    {
+                        GameStatus = GameStatus.TurnStart;
+                        listDict[CurrentPlayer][effect] = false;
+                        break;
+                    }
+                default:
+                    break;
 
 
             }
@@ -311,8 +320,42 @@ namespace Unideckbuildduel.Logic
             }
             Card c = commonDeck.Pop();
             cards[players[num]].Add(c);
+            Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
             return c;
         }
+
+        public void drawFromDeck(string s)
+        {
+            bool res = true;
+            int i = 0;
+            while (i < commonDeck.Count && res)
+            {
+                if (commonDeck.ElementAt(i).CardType.Name == s)
+                {
+                    cards[players[CurrentPlayer]].Add(commonDeck.ElementAt(i));
+                    res = false;
+                }
+                i++;
+            }
+            Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
+        }
+
+        public void drawFromDiscard(string s)
+        {
+            bool res = true;
+            int i = 0;
+            while (i < discardStack.Count && res)
+            {
+                if (discardStack.ElementAt(i).CardType.Name == s)
+                {
+                    cards[players[CurrentPlayer]].Add(discardStack.ElementAt(i));
+                    res = false;
+                }
+                i++;
+            }
+            Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
+        }
+
         /// <summary>
         /// Method called to end the draw phase
         /// </summary>

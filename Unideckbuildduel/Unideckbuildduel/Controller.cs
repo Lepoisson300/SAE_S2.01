@@ -125,6 +125,10 @@ namespace Unideckbuildduel
         {
             Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please discard your cards or finish your turn");
             Window.GetWindow.nextButtonState = true;
+            if (Game.GetGame.listDict[currentPlayer][Effect.DrawOncePerTurn])
+                Window.GetWindow.drawOncePerTurnChange();
+            if (Game.GetGame.listDict[currentPlayer][Effect.DrawOncePerTurn])
+                Window.GetWindow.drawOncePerTurnChange();
         }
         /// <summary>
         /// Feedback when the turn is ended for a player
@@ -160,6 +164,7 @@ namespace Unideckbuildduel
         {
             Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please play your cards, change phase or end your turn");
             Window.GetWindow.nextButtonState = false;
+
         }
         /// <summary>
         /// Displays the hand of the player in the window
@@ -178,11 +183,22 @@ namespace Unideckbuildduel
         /// <param name="cardNum">The number of the card</param>
         public void DiscardCard(int playerNum, int cardNum)
         {
+            Game g = Game.GetGame;
+            string s = g.cards[g.players[CurrentPlayer]][cardNum].CardType.Name;
+
             bool ok = Game.GetGame.DiscardCard(playerNum, cardNum);
             if (ok)
             {
                 Window.GetWindow.WriteLine("Card " + cardNum + " removed from the hand of player " + PlayerName(playerNum));
                 Window.GetWindow.Refresh();
+
+                foreach (Card ca in g.buildings[g.players[g.CurrentPlayer]])
+                {
+                    if (ca.CardType.Effect == Effect.CanExchange &&  ca.CardType.EffectCard.Name == s)
+                    {
+                        Game.GetGame.DrawOneCard(CurrentPlayer);
+                    }
+                }
             }
             else
             {

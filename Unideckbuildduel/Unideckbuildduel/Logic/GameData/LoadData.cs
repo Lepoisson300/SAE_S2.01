@@ -148,11 +148,11 @@ namespace Unideckbuildduel.Logic.GameData
                 Description = "Long-term storage.",
                 RequiredBuildings = new Dictionary<CardType, int>
                 {
-                    { cardTypes["Library"], 1 }
+                    { cardTypes["Library"], 0 }
                 },
                 RequiredRessources = new Dictionary<CardType, int>
                 {
-                    { cardTypes["Funding"], 1 }
+                    { cardTypes["Funding"], 0 }
                 },
                 Effect = Effect.DrawFromDiscardOncePerTurn,
                 EffectCard = cardTypes["A-List Publication"],

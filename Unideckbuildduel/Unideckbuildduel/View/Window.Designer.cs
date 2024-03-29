@@ -37,11 +37,14 @@
             this.replayButton = new System.Windows.Forms.Button();
             this.DeckSize = new System.Windows.Forms.Label();
             this.DiscardSize = new System.Windows.Forms.Label();
+            this.drawOncePerTurn = new System.Windows.Forms.Button();
+            this.ActiveEffectListBox = new System.Windows.Forms.ListBox();
+            this.DrawFromDiscardButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(1256, 531);
+            this.quitButton.Location = new System.Drawing.Point(1385, 528);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 0;
@@ -52,14 +55,14 @@
             // outputListBox
             // 
             this.outputListBox.FormattingEnabled = true;
-            this.outputListBox.Location = new System.Drawing.Point(996, 34);
+            this.outputListBox.Location = new System.Drawing.Point(1125, 31);
             this.outputListBox.Name = "outputListBox";
             this.outputListBox.Size = new System.Drawing.Size(371, 433);
             this.outputListBox.TabIndex = 1;
             // 
             // nextTurnButton
             // 
-            this.nextTurnButton.Location = new System.Drawing.Point(1256, 492);
+            this.nextTurnButton.Location = new System.Drawing.Point(1385, 489);
             this.nextTurnButton.Name = "nextTurnButton";
             this.nextTurnButton.Size = new System.Drawing.Size(75, 23);
             this.nextTurnButton.TabIndex = 3;
@@ -70,7 +73,7 @@
             // turnLabel
             // 
             this.turnLabel.AutoSize = true;
-            this.turnLabel.Location = new System.Drawing.Point(1159, 567);
+            this.turnLabel.Location = new System.Drawing.Point(1288, 564);
             this.turnLabel.Name = "turnLabel";
             this.turnLabel.Size = new System.Drawing.Size(35, 13);
             this.turnLabel.TabIndex = 4;
@@ -79,7 +82,7 @@
             // playerTwoScoreLabel
             // 
             this.playerTwoScoreLabel.AutoSize = true;
-            this.playerTwoScoreLabel.Location = new System.Drawing.Point(1159, 531);
+            this.playerTwoScoreLabel.Location = new System.Drawing.Point(1288, 528);
             this.playerTwoScoreLabel.Name = "playerTwoScoreLabel";
             this.playerTwoScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerTwoScoreLabel.TabIndex = 5;
@@ -88,7 +91,7 @@
             // playerOneScoreLabel
             // 
             this.playerOneScoreLabel.AutoSize = true;
-            this.playerOneScoreLabel.Location = new System.Drawing.Point(1159, 492);
+            this.playerOneScoreLabel.Location = new System.Drawing.Point(1288, 489);
             this.playerOneScoreLabel.Name = "playerOneScoreLabel";
             this.playerOneScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerOneScoreLabel.TabIndex = 6;
@@ -97,7 +100,7 @@
             // replayButton
             // 
             this.replayButton.Enabled = false;
-            this.replayButton.Location = new System.Drawing.Point(1256, 567);
+            this.replayButton.Location = new System.Drawing.Point(1385, 564);
             this.replayButton.Name = "replayButton";
             this.replayButton.Size = new System.Drawing.Size(75, 23);
             this.replayButton.TabIndex = 7;
@@ -108,7 +111,7 @@
             // DeckSize
             // 
             this.DeckSize.AutoSize = true;
-            this.DeckSize.Location = new System.Drawing.Point(993, 492);
+            this.DeckSize.Location = new System.Drawing.Point(1122, 489);
             this.DeckSize.Name = "DeckSize";
             this.DeckSize.Size = new System.Drawing.Size(35, 13);
             this.DeckSize.TabIndex = 8;
@@ -117,17 +120,51 @@
             // DiscardSize
             // 
             this.DiscardSize.AutoSize = true;
-            this.DiscardSize.Location = new System.Drawing.Point(993, 531);
+            this.DiscardSize.Location = new System.Drawing.Point(1122, 528);
             this.DiscardSize.Name = "DiscardSize";
             this.DiscardSize.Size = new System.Drawing.Size(35, 13);
             this.DiscardSize.TabIndex = 9;
             this.DiscardSize.Text = "label2";
             // 
+            // drawOncePerTurn
+            // 
+            this.drawOncePerTurn.Location = new System.Drawing.Point(1100, 564);
+            this.drawOncePerTurn.Name = "drawOncePerTurn";
+            this.drawOncePerTurn.Size = new System.Drawing.Size(135, 23);
+            this.drawOncePerTurn.TabIndex = 11;
+            this.drawOncePerTurn.Text = "Draw From Deck";
+            this.drawOncePerTurn.UseVisualStyleBackColor = true;
+            this.drawOncePerTurn.Visible = false;
+            this.drawOncePerTurn.Click += new System.EventHandler(this.drawOncePerTurn_Click);
+            // 
+            // ActiveEffectListBox
+            // 
+            this.ActiveEffectListBox.FormattingEnabled = true;
+            this.ActiveEffectListBox.Location = new System.Drawing.Point(967, 218);
+            this.ActiveEffectListBox.Name = "ActiveEffectListBox";
+            this.ActiveEffectListBox.Size = new System.Drawing.Size(152, 199);
+            this.ActiveEffectListBox.TabIndex = 12;
+            // 
+            // DrawFromDiscardButton
+            // 
+            this.DrawFromDiscardButton.Enabled = false;
+            this.DrawFromDiscardButton.Location = new System.Drawing.Point(1100, 593);
+            this.DrawFromDiscardButton.Name = "DrawFromDiscardButton";
+            this.DrawFromDiscardButton.Size = new System.Drawing.Size(135, 23);
+            this.DrawFromDiscardButton.TabIndex = 13;
+            this.DrawFromDiscardButton.Text = " Draw From Discard Once Per Turn";
+            this.DrawFromDiscardButton.UseVisualStyleBackColor = true;
+            this.DrawFromDiscardButton.Visible = false;
+            this.DrawFromDiscardButton.Click += new System.EventHandler(this.DrawFromDiscardButton_Click);
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1391, 611);
+            this.ClientSize = new System.Drawing.Size(1508, 639);
+            this.Controls.Add(this.DrawFromDiscardButton);
+            this.Controls.Add(this.ActiveEffectListBox);
+            this.Controls.Add(this.drawOncePerTurn);
             this.Controls.Add(this.DiscardSize);
             this.Controls.Add(this.DeckSize);
             this.Controls.Add(this.replayButton);
@@ -158,6 +195,9 @@
         private System.Windows.Forms.Button replayButton;
         private System.Windows.Forms.Label DeckSize;
         private System.Windows.Forms.Label DiscardSize;
+        private System.Windows.Forms.Button drawOncePerTurn;
+        private System.Windows.Forms.ListBox ActiveEffectListBox;
+        private System.Windows.Forms.Button DrawFromDiscardButton;
     }
 }
 
