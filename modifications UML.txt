@@ -1,23 +1,9 @@
-classe Window: 
-	ajout de la fonction SelectCard
-	ajout de la fonction Window_MouseDown
-	suppression de la fonction PlaceAllButton
-	ajout de la fonction NextTurnButtonClick
-
-classe Cardview:
-	fonction GetRectangle
-
-
-classe controller :
-	attribut CurrentPlayer devient public (précedemment privé)
-	supression de la fonction PlaceAllCards
-
 classe Game:
-	ajout de l'attribut discardStack
-	ajout de la fonction shuffle
-	attribut commonDeck devient public (précedemment privé)
-	ajout de la fonction NextPhase
+	ajout fonction initialiseDict
+	ajout fonction newEffect
+	ajout useEffect
+	ajout attribut listDict
+	ajout attribut effectDictP1
+	ajout attribut effectDictP2
 
-
- penser à fix le bug du tutoriel
 Compteur de la taille de la pioche semble être légèrement disfonctionnel.

@@ -35,6 +35,13 @@ namespace Unideckbuildduel.Logic
         /// The current player (0-1)
         /// </summary>
         public int CurrentPlayer { get; private set; }
+
+        public List<Dictionary<Effect?, bool>> listDict = new List<Dictionary<Effect?, bool>>();
+
+        public Dictionary<Effect?, bool> effectDictP1 = new Dictionary<Effect?, bool>();
+
+        public Dictionary<Effect?, bool> effectDictP2 = new Dictionary<Effect?, bool>();
+
         private Game() {}
         /// <summary>
         /// Method used to launch a new game (at startup or after)
@@ -46,6 +53,7 @@ namespace Unideckbuildduel.Logic
             players = new List<Player> { new Player { Name = playerOneName }, new Player { Name = playerTwoName } };
             cards = new Dictionary<Player, List<Card>>();
             buildings = new Dictionary<Player, List<Card>>();
+            initialiseDict();
             foreach (Player p in players)
             {
                 p.Number = players.IndexOf(p);
@@ -56,6 +64,20 @@ namespace Unideckbuildduel.Logic
             CurrentPlayer = 0;
             Turn = 0;
         }
+
+        public void initialiseDict()
+        {
+            listDict.Add(effectDictP1);
+            listDict.Add(effectDictP2);
+            foreach(Dictionary<Effect?, bool> d in listDict)
+            {
+                foreach (Effect? e in Effect.GetValues(typeof(Effect)))
+                {
+                    d[e] = false;
+                }
+            }
+        }
+
         /// <summary>
         /// Method called to end the discard phase
         /// </summary>
@@ -146,6 +168,9 @@ namespace Unideckbuildduel.Logic
                         }
                     }
 
+                    if (card.CardType.Effect != null)
+                        newEffect(card.CardType.Effect);
+
                     buildings[players[playerNum]].Add(card);
                     cards[players[playerNum]].Remove(card);
                     players[playerNum].Points += card.CardType.Points;
@@ -156,10 +181,32 @@ namespace Unideckbuildduel.Logic
                 case Kind.Action:
                     discardStack.Push(card);
                     cards[players[playerNum]].Remove(card);
+                    if (card.CardType.Effect != null)
+                        newEffect(card.CardType.Effect);
                     Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
                     return (null, true);
                 default:
                     return ("Card type not handled yet", false);
+            }
+        }
+
+        public void newEffect(Effect? e)
+        {
+            listDict[CurrentPlayer][e] = true;
+            useEffect(e);
+        }
+
+        public void useEffect(Effect? effect)
+        {
+            switch (effect)
+            { 
+                case Effect.OneMoreCard:
+                    {
+                        players[CurrentPlayer].HandSize++;
+                        break;
+                    }
+
+
             }
         }
 
