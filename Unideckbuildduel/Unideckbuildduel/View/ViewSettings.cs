@@ -15,35 +15,35 @@ namespace Unideckbuildduel
         /// <summary>
         /// The width of the border for cards
         /// </summary>
-        public static int CardWidth { get; set; } = 1;
+        public static int CardWidth { get; set; } = 2;
         /// <summary>
         /// The size of cards
         /// </summary>
-        public static Size CardSize { get; set; } = new Size(160, 80);
+        public static Size CardSize { get; set; } = new Size(162, 80);
         /// <summary>
         /// The withd of the border of buildings
         /// </summary>
-        public static int BuildWidth { get; set; } = 2;
+        public static int BuildWidth { get; set; } = 3;
         /// <summary>
         /// The size of buildings
         /// </summary>
-        public static Size BuildSize { get; set; } = new Size(100, 20);
+        public static Size BuildSize { get; set; } = new Size(120, 40);
         /// <summary>
         /// The color used for buildings
         /// </summary>
-        public static Color BuildColour { get; set; } = Color.DarkSlateBlue;
+        public static Color BuildColour { get; set; } = Color.CornflowerBlue;
         /// <summary>
         /// The font used for displays
         /// </summary>
-        public static Font BaseFont { get; set; } = new Font("Arial", 12, FontStyle.Regular);
+        public static Font BaseFont { get; set; } = new Font("Arial", 11, FontStyle.Bold);
         /// <summary>
         /// The colour of the text
         /// </summary>
-        public static Color TextColour { get; set; } = Color.DarkOrchid;
+        public static Color TextColour { get; set; } = Color.DimGray;
         /// <summary>
         /// The margin between objects on the screen
         /// </summary>
-        public static Size Margin { get; set; } = new Size(16, 16);
+        public static Size Margin { get; set; } = new Size(10, 10);
         /// <summary>
         /// Do not display anything on the right of this
         /// </summary>

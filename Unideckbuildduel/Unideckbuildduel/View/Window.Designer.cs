@@ -41,7 +41,7 @@
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(1167, 527);
+            this.quitButton.Location = new System.Drawing.Point(1256, 531);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(75, 23);
             this.quitButton.TabIndex = 0;
@@ -52,14 +52,14 @@
             // outputListBox
             // 
             this.outputListBox.FormattingEnabled = true;
-            this.outputListBox.Location = new System.Drawing.Point(1017, 30);
+            this.outputListBox.Location = new System.Drawing.Point(996, 34);
             this.outputListBox.Name = "outputListBox";
-            this.outputListBox.Size = new System.Drawing.Size(261, 433);
+            this.outputListBox.Size = new System.Drawing.Size(371, 433);
             this.outputListBox.TabIndex = 1;
             // 
             // nextTurnButton
             // 
-            this.nextTurnButton.Location = new System.Drawing.Point(1167, 488);
+            this.nextTurnButton.Location = new System.Drawing.Point(1256, 492);
             this.nextTurnButton.Name = "nextTurnButton";
             this.nextTurnButton.Size = new System.Drawing.Size(75, 23);
             this.nextTurnButton.TabIndex = 3;
@@ -70,7 +70,7 @@
             // turnLabel
             // 
             this.turnLabel.AutoSize = true;
-            this.turnLabel.Location = new System.Drawing.Point(1070, 563);
+            this.turnLabel.Location = new System.Drawing.Point(1159, 567);
             this.turnLabel.Name = "turnLabel";
             this.turnLabel.Size = new System.Drawing.Size(35, 13);
             this.turnLabel.TabIndex = 4;
@@ -79,7 +79,7 @@
             // playerTwoScoreLabel
             // 
             this.playerTwoScoreLabel.AutoSize = true;
-            this.playerTwoScoreLabel.Location = new System.Drawing.Point(1070, 527);
+            this.playerTwoScoreLabel.Location = new System.Drawing.Point(1159, 531);
             this.playerTwoScoreLabel.Name = "playerTwoScoreLabel";
             this.playerTwoScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerTwoScoreLabel.TabIndex = 5;
@@ -88,7 +88,7 @@
             // playerOneScoreLabel
             // 
             this.playerOneScoreLabel.AutoSize = true;
-            this.playerOneScoreLabel.Location = new System.Drawing.Point(1070, 488);
+            this.playerOneScoreLabel.Location = new System.Drawing.Point(1159, 492);
             this.playerOneScoreLabel.Name = "playerOneScoreLabel";
             this.playerOneScoreLabel.Size = new System.Drawing.Size(35, 13);
             this.playerOneScoreLabel.TabIndex = 6;
@@ -97,7 +97,7 @@
             // replayButton
             // 
             this.replayButton.Enabled = false;
-            this.replayButton.Location = new System.Drawing.Point(1167, 563);
+            this.replayButton.Location = new System.Drawing.Point(1256, 567);
             this.replayButton.Name = "replayButton";
             this.replayButton.Size = new System.Drawing.Size(75, 23);
             this.replayButton.TabIndex = 7;
@@ -108,7 +108,7 @@
             // DeckSize
             // 
             this.DeckSize.AutoSize = true;
-            this.DeckSize.Location = new System.Drawing.Point(904, 488);
+            this.DeckSize.Location = new System.Drawing.Point(993, 492);
             this.DeckSize.Name = "DeckSize";
             this.DeckSize.Size = new System.Drawing.Size(35, 13);
             this.DeckSize.TabIndex = 8;
@@ -117,7 +117,7 @@
             // DiscardSize
             // 
             this.DiscardSize.AutoSize = true;
-            this.DiscardSize.Location = new System.Drawing.Point(904, 527);
+            this.DiscardSize.Location = new System.Drawing.Point(993, 531);
             this.DiscardSize.Name = "DiscardSize";
             this.DiscardSize.Size = new System.Drawing.Size(35, 13);
             this.DiscardSize.TabIndex = 9;
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1312, 611);
+            this.ClientSize = new System.Drawing.Size(1391, 611);
             this.Controls.Add(this.DiscardSize);
             this.Controls.Add(this.DeckSize);
             this.Controls.Add(this.replayButton);

@@ -133,11 +133,21 @@ namespace Unideckbuildduel.View
         {
             if (nextButtonState)
             {
-                Controller.GetControler.EndTurn();
+                string message = "Are you sure, that you want end turn?";
+                string title = "End turn";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                    Controller.GetControler.EndTurn();
             }
             else
             {
-                Game.GetGame.NextPhase();
+                string message = "Are you sure, that you want end playing phase?";
+                string title = "End phase";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                    Game.GetGame.NextPhase();
             }
             Refresh();
         }
@@ -152,7 +162,12 @@ namespace Unideckbuildduel.View
 
         private void QuitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            string message = "Are you sure, that you want quit?";
+            string title = "Quit";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes) 
+                Application.Exit();
         }
         #endregion
 
