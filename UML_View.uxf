@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>840</x>
-      <y>90</y>
-      <w>340</w>
-      <h>150</h>
+      <x>395</x>
+      <y>285</y>
+      <w>170</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>BuildingView
 --
@@ -27,10 +27,10 @@ _+ MakeBuildingOrNull(CardType,Point) : BuildingView_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>260</x>
-      <y>200</y>
-      <w>170</w>
-      <h>200</h>
+      <x>105</x>
+      <y>330</y>
+      <w>85</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>CardView
 --
@@ -44,6 +44,7 @@ _+ MakeBuildingOrNull(CardType,Point) : BuildingView_
 -Rect.get():Rectangle
 +CardView(Card,Point,int)
 +Draw(Graphics):void
++GetRectangle():Rectangle
 
 
 
@@ -69,21 +70,21 @@ _+ MakeBuildingOrNull(CardType,Point) : BuildingView_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>480</y>
-      <w>350</w>
-      <h>450</h>
+      <x>215</x>
+      <y>520</y>
+      <w>175</w>
+      <h>235</h>
     </coordinates>
     <panel_attributes>ViewSettings
 --
-_+CardWidth:int=1_
-_+CardSize:Size=Size(160, 80)_
-_+BuildWidth:int=2_
-_+BuildSize:Size=Size(100, 20)_
-_+BuildColour:Color=Color.DarkSlateBlue_
-_+BaseFont:Font=Font("Arial", 12, FontStyle.Regular)_
-_+TextColour:Color=Color.DarkOrchid_
-_+Margin:Size=Size(16, 16)_
+_+CardWidth:int=2_
+_+CardSize:Size=Size(140, 80)_
+_+BuildWidth:int=3_
+_+BuildSize:Size=Size(120, 40)_
+_+BuildColour:Color=Color.CornflowerBlue
+_+BaseFont:Font=Font("Arial", 9, FontStyle.Bold)_
+_+TextColour:Color=Color.DimGray
+_+Margin:Size=Size(10, 10)_
 --
 _+CardWidth.get():int_
 _+CardWidth.set(int):void_
@@ -117,10 +118,10 @@ _+Rightmost.set(int):void_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1630</x>
-      <y>710</y>
-      <w>230</w>
-      <h>140</h>
+      <x>435</x>
+      <y>480</y>
+      <w>115</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>StartupDialog
 --
@@ -129,16 +130,16 @@ _+Rightmost.set(int):void_
 --
 +TurnLimit.get():int
 +StartupDialog()
-+okButton_Click(object,EventArgs</panel_attributes>
++okButton_Click(object,EventArgs):void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>470</x>
-      <y>150</y>
-      <w>340</w>
-      <h>300</h>
+      <x>210</x>
+      <y>305</y>
+      <w>170</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Window
 --
@@ -150,15 +151,21 @@ _+Rightmost.set(int):void_
 -playerTwoBuildingStart:Point
 -playerOneBuildingCurrent:Point
 -playerTwoBuildingCurrent:Point
++nextButtonState:bol
 _-GetWindow:Window=Window()_
 --
 _-GetWindow.get():Window_
 -Window()
 +WriteLine(string):void
 +AddNewBuilding(int,Card):void
-+CardsForPlayerCardsForPlayer(int,List&lt;Card&gt;):void
++CardsForPlayer(int,List&lt;Card&gt;):void
 -replayButton_Click(object,EventArgs):void
-
++SelectCard(Point):int
+-Window_MouseDown(object,EventArgs):void
+-drawOncePerTurn_Click(object,EventArgs):void
+-DrawFromDiscardButton_Click(object,EventArgs):void
+-DeckSize_Click(object,EventArgs):void
+-DiscardSize_Click(object,EventArgs):void
 
 
 
@@ -168,46 +175,46 @@ _-GetWindow.get():Window_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>820</x>
-      <y>230</y>
-      <w>160</w>
-      <h>430</h>
+      <x>385</x>
+      <y>355</y>
+      <w>80</w>
+      <h>255</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;410.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;490.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
-      <y>390</y>
-      <w>160</w>
-      <h>310</h>
+      <x>145</x>
+      <y>425</y>
+      <w>80</w>
+      <h>205</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>140.0;290.0;10.0;10.0</additional_attributes>
+    <additional_attributes>140.0;390.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>230</y>
-      <w>100</w>
-      <h>200</h>
+      <x>375</x>
+      <y>355</y>
+      <w>50</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>420</x>
-      <y>340</y>
-      <w>70</w>
-      <h>70</h>
+      <x>185</x>
+      <y>400</y>
+      <w>35</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n</panel_attributes>
@@ -216,10 +223,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>440</y>
-      <w>70</w>
-      <h>60</h>
+      <x>290</x>
+      <y>500</y>
+      <w>35</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
@@ -228,10 +235,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>510</x>
-      <y>10</y>
-      <w>190</w>
-      <h>120</h>
+      <x>230</x>
+      <y>235</y>
+      <w>95</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>Logic
 --
@@ -242,10 +249,10 @@ bg=orange
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>50</y>
-      <w>100</w>
-      <h>30</h>
+      <x>235</x>
+      <y>255</y>
+      <w>50</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>CardType</panel_attributes>
     <additional_attributes/>
@@ -253,10 +260,10 @@ bg=orange
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>90</y>
-      <w>100</w>
-      <h>30</h>
+      <x>235</x>
+      <y>275</y>
+      <w>50</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>Kind
 </panel_attributes>
@@ -265,10 +272,10 @@ bg=orange
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>850</x>
-      <y>10</y>
-      <w>150</w>
-      <h>70</h>
+      <x>420</x>
+      <y>225</y>
+      <w>75</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -278,10 +285,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
-      <y>40</y>
-      <w>100</w>
-      <h>30</h>
+      <x>430</x>
+      <y>240</y>
+      <w>50</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>Controller</panel_attributes>
     <additional_attributes/>
@@ -289,34 +296,34 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>60</y>
-      <w>250</w>
-      <h>70</h>
+      <x>280</x>
+      <y>260</y>
+      <w>125</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;230.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;230.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>90</y>
-      <w>250</w>
-      <h>80</h>
+      <x>280</x>
+      <y>275</y>
+      <w>125</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;230.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;230.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>60</y>
-      <w>180</w>
-      <h>210</h>
+      <x>155</x>
+      <y>260</y>
+      <w>90</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
@@ -325,22 +332,22 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>40</y>
-      <w>180</w>
-      <h>130</h>
+      <x>330</x>
+      <y>240</y>
+      <w>110</w>
+      <h>75</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
-    <additional_attributes>160.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>200.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>90</y>
-      <w>140</w>
-      <h>130</h>
+      <x>175</x>
+      <y>275</y>
+      <w>70</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
@@ -349,10 +356,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>60</y>
-      <w>180</w>
-      <h>160</h>
+      <x>155</x>
+      <y>260</y>
+      <w>90</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>

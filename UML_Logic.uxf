@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>10</y>
-      <w>350</w>
-      <h>450</h>
+      <x>204</x>
+      <y>66</y>
+      <w>210</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>CardType
 --
@@ -42,10 +42,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>710</x>
-      <y>590</y>
-      <w>150</w>
-      <h>140</h>
+      <x>462</x>
+      <y>414</y>
+      <w>90</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 GameStatus
@@ -60,10 +60,10 @@ Ended</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>460</y>
-      <w>150</w>
-      <h>110</h>
+      <x>468</x>
+      <y>336</y>
+      <w>90</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 Kind
@@ -76,10 +76,10 @@ Ressource</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>720</x>
-      <y>750</y>
-      <w>220</w>
-      <h>210</h>
+      <x>468</x>
+      <y>510</y>
+      <w>132</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Player
 --
@@ -99,10 +99,10 @@ Ressource</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>320</y>
-      <w>210</w>
-      <h>80</h>
+      <x>444</x>
+      <y>252</y>
+      <w>126</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>Card
 --
@@ -114,10 +114,10 @@ Ressource</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>0</y>
-      <w>210</w>
-      <h>190</h>
+      <x>450</x>
+      <y>60</y>
+      <w>126</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 Effect
@@ -135,32 +135,49 @@ Substitute</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>500</y>
-      <w>340</w>
+      <x>216</x>
+      <y>360</y>
+      <w>204</w>
       <h>420</h>
     </coordinates>
     <panel_attributes>Game
 --
 _+GetGame:Game_
++commonDeck:Stack&lt;Card&gt;
++discardStack:Stack&lt;Card&gt;
++players:List&lt;Player&gt;
++cards:Dictionary&lt;Player, List&lt;Card&gt;&gt;
++buildings:Dictionary&lt;Player, List&lt;Card&gt;&gt;
++substitutesList: List&lt;HashSet&lt;Card&gt;&gt;
++listDict:List&lt;Dictionary&lt;Effect?, bool&gt;&gt; 
++effectDictP1:Dictionary&lt;Effect?, bool&gt;
++effectDictP2:Dictionary&lt;Effect?, bool&gt;
 --
 _+GetGame.get():Game_
 +Turn.get():int
 +Turn.set(int):void
 +GameStatus.get():GameStatus
-+GameStatus.set(GameStatus):void
+-GameStatus.set(GameStatus):void
 +CurrentPlater.get():int
-+CurrentPlater.set(int):void
+-CurrentPlater.set(int):void
 -Game()
 +NewGame(string,string):void
++initialiseDict():void
 +DiscardPhaseEnded():void
 +PlayCard(int,int):(string,bool)
 -PlayCard(int,Card):(string,bool)
++newEffect(Effect,Card):void
++useEffect(Effect,Card):void
++Shuffle(Stack&lt;Card&gt;):Stack&lt;Card&gt;
 _-NumberOfCardsPresent(List&lt;Card&gt;,CardType):int_
 +Play():void
++NextPhase():void
 +DiscardCard(int,int):bool
 -DiscardCard(int,Card):bool
 +DrawOneCard(int):Card
++drawFromDeck(string):Card
++drawFromDiscard(string):Card
++IsSubstitued(CardType):bool
 +DrawPhaseEnded():void
 +PlayerName(int):string
 +PlayerScore(int):int
@@ -178,10 +195,10 @@ _-NumberOfCardsPresent(List&lt;Card&gt;,CardType):int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>450</x>
-      <y>450</y>
-      <w>70</w>
-      <h>70</h>
+      <x>306</x>
+      <y>330</y>
+      <w>42</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
@@ -190,10 +207,10 @@ _-NumberOfCardsPresent(List&lt;Card&gt;,CardType):int_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>390</y>
-      <w>130</w>
-      <h>130</h>
+      <x>402</x>
+      <y>294</y>
+      <w>78</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n</panel_attributes>
@@ -202,10 +219,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>360</y>
-      <w>80</w>
-      <h>40</h>
+      <x>408</x>
+      <y>276</y>
+      <w>48</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -214,10 +231,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>860</y>
-      <w>110</w>
-      <h>40</h>
+      <x>414</x>
+      <y>576</y>
+      <w>66</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n</panel_attributes>
@@ -226,10 +243,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>120</y>
-      <w>90</w>
-      <h>30</h>
+      <x>408</x>
+      <y>132</y>
+      <w>54</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
@@ -237,10 +254,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>660</y>
-      <w>100</w>
-      <h>30</h>
+      <x>414</x>
+      <y>456</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
@@ -248,10 +265,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>530</y>
-      <w>110</w>
-      <h>30</h>
+      <x>414</x>
+      <y>378</y>
+      <w>66</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
@@ -259,10 +276,10 @@ m1=0..n</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>60</x>
-      <y>540</y>
-      <w>190</w>
-      <h>100</h>
+      <x>72</x>
+      <y>384</y>
+      <w>114</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>GameData
 --
@@ -272,10 +289,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>570</y>
-      <w>100</w>
-      <h>30</h>
+      <x>84</x>
+      <y>402</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>LoadData
 </panel_attributes>
@@ -284,10 +301,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>70</x>
-      <y>660</y>
-      <w>190</w>
-      <h>150</h>
+      <x>78</x>
+      <y>456</y>
+      <w>114</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -298,9 +315,9 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>90</x>
-      <y>690</y>
-      <w>100</w>
-      <h>30</h>
+      <y>474</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>Controller</panel_attributes>
     <additional_attributes/>
@@ -309,9 +326,9 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>90</x>
-      <y>730</y>
-      <w>100</w>
-      <h>30</h>
+      <y>498</y>
+      <w>60</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>Program</panel_attributes>
     <additional_attributes/>
@@ -319,10 +336,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>180</x>
-      <y>670</y>
-      <w>140</w>
-      <h>50</h>
+      <x>144</x>
+      <y>462</y>
+      <w>84</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
@@ -331,10 +348,10 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>560</y>
-      <w>150</w>
-      <h>40</h>
+      <x>138</x>
+      <y>396</y>
+      <w>90</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;use&gt;&gt;</panel_attributes>
