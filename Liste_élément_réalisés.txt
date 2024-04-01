@@ -1,60 +1,48 @@
-Première phase, nous avons compété le tutoriel ce qui nous permet d'entamer la phase principale du projet.
-Ici nous parlons uniquement des exercices de réalisation du projet.
+Joakim Baynaud
+Alexandre Le Gal
+Rémi Puigsech
 
-2.7
-2.8
-2.9
-2.10
-2.11
-2.12
-2.13
+Nous avons complété le tutoriel ce qui nous permet d'entamer la phase principale du projet.
+Nous avons également répondu aux questions du dossier.
+(réalisations 1-20)
+
+Voici la liste des questions effectuées:
+
 réalisation 21:
 Ajout de la fonction "SelectCard" et "Window_MouseDown" pour jouer les cartes.
 
 réalisation 22:
 Suppression du bouton "place all" ainsi que de sa fonction lié "PlaceAllButtonClick".
 
-
-2.14
 réalisation 23:
 Implémentation de la partie ressource au jeu.
 
-
-2.15
 réalisation 24:
 Ajout de la défausse au jeu.
 
 réalisation 25:
 Visualisation de la taille des piles de jeu et de défausse.
 
-
-2.16
 réalisation 26:
 Ajout de la phase de défausse au jeu.
 
 réalisation 27:
-La possibilité de défausser une carte lors de la phase de défausse.
+Ajout de la possibilité de défausser une carte lors de la phase de défausse.
 
-
-2.17
 réalisation 28:
 Permet de jouer les carte de type action même si pour le moment elles n'ont aucun effet.
 
+réalisation 29:
+Ajout de toutes les fonctionnalités des effets des différentes cartes.
 
-2.18
-
-
-2.19
 réalisation 30:
 Ajout des nouvelles cartes codé dans la pioche.
 
-
-2.20
 réalisation 31:
-Ajout d'une liste des effets pouvant être réalisé afin de savoir les action possible à ce tour pour le joueur actif.
+Ajout d'une liste des effets en cours, afin de savoir les action possible à ce tour pour le joueur actif.
 
 réalisation 32:
-Ajout de l'interface pour échanger une carte.
+Ajout de l'interface pour échanger une carte (clique droit avec message qui apparaît lorsque l'échange est disponible).
 
 réalisation 33:
 Permet de récupérer une carte dans la défausse ou la pioche lors des effets "DrawOncePerTurn" et "DrawFromDiscardOncePerTurn".
@@ -62,19 +50,15 @@ Permet de récupérer une carte dans la défausse ou la pioche lors des effets "
 réalisation 34:
 Ajout d'un message lors de l'utilisation des effets.
 
-
-2.21
 réalisation 35:
 Personnalisation de l'interface graphique du jeu.
 
 réalisation 36:
-Éviter le beug visuel de la sixième carte.
+Éviter le bug visuel de la sixième carte.
 
 réalisation 37:
 Ajout d'un dialogue de confirmation pour chaque action.
 
-réalisation 38:
-Ajout de l'empilassions des bâtiments par leur type.
 
 
 
