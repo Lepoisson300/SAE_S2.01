@@ -195,6 +195,8 @@ namespace Unideckbuildduel.Logic
                         newEffect(card.CardType.Effect, card);
                     Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
                     return (null, true);
+                case Kind.Ressource:
+                    return ("Ressource card cannot be played", false);
                 default:
                     return ("Card type not handled yet", false);
             }

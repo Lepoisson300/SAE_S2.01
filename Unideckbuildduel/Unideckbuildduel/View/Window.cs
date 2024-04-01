@@ -103,9 +103,25 @@ namespace Unideckbuildduel.View
             cardViews.Clear();
             Point point = playerNumber == 0 ? playerOneCardStart : playerTwoCardStart;
             int i = 0;
+            Dictionary <CardType, int> cardsWithNumber = new Dictionary<CardType, int>();
             foreach (Card c in cards)
             {
-                cardViews.Add(new CardView(c, point, i++));
+                if (!cardsWithNumber.ContainsKey(c.CardType))
+                {
+                    cardsWithNumber.Add(c.CardType, 1);
+                }
+                else
+                {
+                    cardsWithNumber[c.CardType]++;
+                }
+            }
+            foreach (CardType ct in cardsWithNumber.Keys)
+            {
+                Card ca = new Card
+                {
+                    CardType = ct,
+                };
+                cardViews.Add(new CardView(ca, point, i++, cardsWithNumber[ct]));
                 point.Offset(ViewSettings.CardSize.Width, 0);
                 point.Offset(ViewSettings.Margin.Width, 0);
             }
@@ -230,10 +246,17 @@ namespace Unideckbuildduel.View
         public int SelectCard(Point loc)
         {
             int num = -1;
+            Game g = Game.GetGame;
             foreach (CardView c in cardViews)
             {
                 if (c.GetRectangle().Contains(loc))
-                    num = c.CardNum;
+                {
+                    for (int i = 0; i < g.cards[g.players[g.CurrentPlayer]].Count; i++)
+                    {
+                        if (c.card.CardType.Name == g.cards[g.players[g.CurrentPlayer]][i].CardType.Name)
+                            num = i;
+                    }
+                }
             }
             return num;
         }

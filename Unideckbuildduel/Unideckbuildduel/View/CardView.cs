@@ -9,7 +9,7 @@ namespace Unideckbuildduel.View
     /// </summary>
     public class CardView
     {
-        private readonly Card card;
+        public readonly Card card;
         private readonly Color colour;
         /// <summary>
         /// The location, relative to the window.
@@ -21,13 +21,15 @@ namespace Unideckbuildduel.View
         public int CardNum { get; private set; }
         private Rectangle Rect {  get { return new Rectangle(Location, ViewSettings.CardSize); } }
 
+        int number;
+
 
         /// <summary>
         /// Parametered constructor.
         /// </summary>
         /// <param name="card">The card to view</param>
         /// <param name="location">The initial location of the card</param>
-        public CardView(Card card, Point location, int cardNum)
+        public CardView(Card card, Point location, int cardNum, int num)
         {
             this.card = card;
             Location = location;
@@ -39,6 +41,7 @@ namespace Unideckbuildduel.View
                 default: colour = Color.Black; break;
             }
             CardNum = cardNum;
+            number = num;
         }
         /// <summary>
         /// The draw method.
@@ -52,13 +55,28 @@ namespace Unideckbuildduel.View
             g.DrawString(card.CardType.Kind.ToString(), ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
             baseLine.Offset(5, 10);
             g.DrawString(card.CardType.Name, ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
-            //...
+
+            if (number > 1) {
+                baseLine.Offset(5, 10);
+                g.DrawString("x" + number, ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
+            }
+
             if (Controller.IsTradable(card))
             {
                 if (Controller.GetControler.CurrentPlayer == 0)
-                    baseLine.Offset(0, 45);
+                {
+                    if (number > 1)
+                        baseLine.Offset(0, 55);
+                    else
+                        baseLine.Offset(0, 65);
+                }
                 else
-                    baseLine.Offset(0, -45);
+                {
+                    if (number > 1)
+                        baseLine.Offset(0, -55);
+                    else
+                        baseLine.Offset(0, -45);
+                }
                 g.DrawString("Right click to trade", ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
             }
 

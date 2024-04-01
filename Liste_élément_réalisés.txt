@@ -12,7 +12,7 @@ réalisation 21:
 Ajout de la fonction "SelectCard" et "Window_MouseDown" pour jouer les cartes.
 
 réalisation 22:
-Suppression du bouton "place all" ainsi que de sa fonction lié "PlaceAllButtonClick".
+Suppression du bouton "place all" ainsi que de sa fonction liée "PlaceAllButtonClick".
 
 réalisation 23:
 Implémentation de la partie ressource au jeu.
@@ -21,7 +21,7 @@ réalisation 24:
 Ajout de la défausse au jeu.
 
 réalisation 25:
-Visualisation de la taille des piles de jeu et de défausse.
+Visualisation de la taille des piles de deck et de défausse.
 
 réalisation 26:
 Ajout de la phase de défausse au jeu.
@@ -58,6 +58,9 @@ réalisation 36:
 
 réalisation 37:
 Ajout d'un dialogue de confirmation pour chaque action.
+
+réalisation 38:
+Affichage d'un rectangle par type de bâtiments avec le nombre de bâtiments en main.
 
 
 
