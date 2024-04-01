@@ -25,4 +25,7 @@ classe controller:
 	ajout fonction Produce
 	ajout fonction isTradable
 
+classe CardView
+	ajout attribut number
+
 
