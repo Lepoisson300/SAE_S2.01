@@ -17,7 +17,6 @@ classe Window:
 	ajout fonction DrawOncePerTurn_Click
 	ajout fonction drawOncePerTurnChange
 	ajout fonction affichageEffect
-	Compteur de la taille de la pioche semble être légèrement disfonctionnel.
 	ajout fonction DrawFromDiscardButton_Click
 	ajout fonction drawFromDiscardChange
 
