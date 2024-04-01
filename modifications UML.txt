@@ -20,8 +20,6 @@ classe Window:
 	ajout fonction DrawFromDiscardButton_Click
 	ajout fonction drawFromDiscardChange
 
-	ajout attribut cardsWithNumber
-
 classe controller:
 	ajout fonction Echange
 	ajout fonction Produce
@@ -29,6 +27,7 @@ classe controller:
 
 classe CardView
 	ajout attribut number
+
 	attribut card devient public
 
 
