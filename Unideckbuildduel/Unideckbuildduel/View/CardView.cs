@@ -9,7 +9,7 @@ namespace Unideckbuildduel.View
     /// </summary>
     public class CardView
     {
-        private readonly Card card;
+        public readonly Card card;
         private readonly Color colour;
         /// <summary>
         /// The location, relative to the window.
@@ -68,7 +68,7 @@ namespace Unideckbuildduel.View
                     if (number > 1)
                         baseLine.Offset(0, 55);
                     else
-                        baseLine.Offset(0, 45);
+                        baseLine.Offset(0, 65);
                 }
                 else
                 {

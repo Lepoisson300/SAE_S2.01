@@ -246,10 +246,17 @@ namespace Unideckbuildduel.View
         public int SelectCard(Point loc)
         {
             int num = -1;
+            Game g = Game.GetGame;
             foreach (CardView c in cardViews)
             {
                 if (c.GetRectangle().Contains(loc))
-                    num = c.CardNum;
+                {
+                    for (int i = 0; i < g.cards[g.players[g.CurrentPlayer]].Count; i++)
+                    {
+                        if (c.card.CardType.Name == g.cards[g.players[g.CurrentPlayer]][i].CardType.Name)
+                            num = i;
+                    }
+                }
             }
             return num;
         }
