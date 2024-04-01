@@ -148,11 +148,11 @@ namespace Unideckbuildduel.Logic.GameData
                 Description = "Long-term storage.",
                 RequiredBuildings = new Dictionary<CardType, int>
                 {
-                    { cardTypes["Library"], 0 }
+                    { cardTypes["Library"], 1 }
                 },
                 RequiredRessources = new Dictionary<CardType, int>
                 {
-                    { cardTypes["Funding"], 0 }
+                    { cardTypes["Funding"], 1 }
                 },
                 Effect = Effect.DrawFromDiscardOncePerTurn,
                 EffectCard = cardTypes["A-List Publication"],
@@ -174,6 +174,7 @@ namespace Unideckbuildduel.Logic.GameData
             });
             cardTypes.Add("Aquarium", new CardType
             {
+                Name = "Aquarium",
                 Unique = true,
                 Kind = Kind.Building,
                 Description="Enables the public to spend their money.",

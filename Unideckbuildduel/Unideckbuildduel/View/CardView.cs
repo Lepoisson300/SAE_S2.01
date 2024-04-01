@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Unideckbuildduel.Logic;
 
 namespace Unideckbuildduel.View
@@ -19,6 +20,7 @@ namespace Unideckbuildduel.View
         /// </summary>
         public int CardNum { get; private set; }
         private Rectangle Rect {  get { return new Rectangle(Location, ViewSettings.CardSize); } }
+
 
         /// <summary>
         /// Parametered constructor.
@@ -51,7 +53,17 @@ namespace Unideckbuildduel.View
             baseLine.Offset(5, 10);
             g.DrawString(card.CardType.Name, ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
             //...
+            if (Controller.IsTradable(card))
+            {
+                if (Controller.GetControler.CurrentPlayer == 0)
+                    baseLine.Offset(0, 45);
+                else
+                    baseLine.Offset(0, -45);
+                g.DrawString("Right click to trade", ViewSettings.BaseFont, new SolidBrush(ViewSettings.TextColour), baseLine);
+            }
+
         }
+
         
         public Rectangle GetRectangle()
         {

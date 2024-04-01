@@ -9,6 +9,9 @@ classe Game:
 	cards devient public
 	players devient public
 	ajout fonction drawFromDeck
+	ajout fonction drawFromDiscard
+	ajout fonction IsSubstitued
+	ajout atribut substitutesList	
 
 classe Window:
 	ajout fonction DrawOncePerTurn_Click
@@ -17,3 +20,10 @@ classe Window:
 	Compteur de la taille de la pioche semble être légèrement disfonctionnel.
 	ajout fonction DrawFromDiscardButton_Click
 	ajout fonction drawFromDiscardChange
+
+classe controller:
+	ajout fonction Echange
+	ajout fonction Produce
+	ajout fonction isTradable
+
+

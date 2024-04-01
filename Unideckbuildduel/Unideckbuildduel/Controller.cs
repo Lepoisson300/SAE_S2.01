@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,10 @@ namespace Unideckbuildduel
 
         public static bool gameOver = true;
 
+        public bool hasDrawnFromDeck = false;
+
+        public bool hasDrawnFromDiscard = false;
+
         private Controller() {}
         /// <summary>
         /// Launches a new game
@@ -61,6 +66,12 @@ namespace Unideckbuildduel
         public void EndTurn()
         {
             Game.GetGame.DiscardPhaseEnded();
+            if (Game.GetGame.listDict[CurrentPlayer][Effect.Substitute])
+            {
+                Game.GetGame.listDict[CurrentPlayer][Effect.Substitute] = false;
+                Game.GetGame.substitutesList[CurrentPlayer].Clear();
+            }
+
             Game.GetGame.Play();
         }
 
@@ -114,6 +125,9 @@ namespace Unideckbuildduel
                     Window.GetWindow.WriteLine("Draw: " + c.CardType.Name);
                 }
             }
+
+            Produce();
+
             Game.GetGame.DrawPhaseEnded();
             Game.GetGame.Play();
         }
@@ -125,10 +139,6 @@ namespace Unideckbuildduel
         {
             Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please discard your cards or finish your turn");
             Window.GetWindow.nextButtonState = true;
-            if (Game.GetGame.listDict[currentPlayer][Effect.DrawOncePerTurn])
-                Window.GetWindow.drawOncePerTurnChange();
-            if (Game.GetGame.listDict[currentPlayer][Effect.DrawOncePerTurn])
-                Window.GetWindow.drawOncePerTurnChange();
         }
         /// <summary>
         /// Feedback when the turn is ended for a player
@@ -164,6 +174,8 @@ namespace Unideckbuildduel
         {
             Window.GetWindow.WriteLine("Player " + PlayerName(currentPlayer) + ", please play your cards, change phase or end your turn");
             Window.GetWindow.nextButtonState = false;
+            hasDrawnFromDeck = false;
+            hasDrawnFromDiscard = false;
 
         }
         /// <summary>
@@ -173,7 +185,7 @@ namespace Unideckbuildduel
         /// <param name="cards">The card in the player's hand</param>
         public void DisplayHand(int num, List<Card> cards)
         {
-            Window.GetWindow.WriteLine("Player " + PlayerName(num) + ", these are your cards:");
+            //Window.GetWindow.WriteLine("Player " + PlayerName(num) + ", these are your cards:");
             Window.GetWindow.CardsForPlayer(num, cards);
         }
         /// <summary>
@@ -183,27 +195,76 @@ namespace Unideckbuildduel
         /// <param name="cardNum">The number of the card</param>
         public void DiscardCard(int playerNum, int cardNum)
         {
-            Game g = Game.GetGame;
-            string s = g.cards[g.players[CurrentPlayer]][cardNum].CardType.Name;
-
             bool ok = Game.GetGame.DiscardCard(playerNum, cardNum);
             if (ok)
             {
                 Window.GetWindow.WriteLine("Card " + cardNum + " removed from the hand of player " + PlayerName(playerNum));
                 Window.GetWindow.Refresh();
-
-                foreach (Card ca in g.buildings[g.players[g.CurrentPlayer]])
-                {
-                    if (ca.CardType.Effect == Effect.CanExchange &&  ca.CardType.EffectCard.Name == s)
-                    {
-                        Game.GetGame.DrawOneCard(CurrentPlayer);
-                    }
-                }
             }
             else
             {
                 Window.GetWindow.WriteLine("Discard problem");
             }
+        }
+
+        public void Echange(string s)
+        {
+            Game g = Game.GetGame;
+            bool exchange_done = false;
+            foreach (Card ca in g.buildings[g.players[g.CurrentPlayer]])
+            {
+                if (ca.CardType.Effect == Effect.CanExchange && ca.CardType.EffectCard.Name == s && !exchange_done)
+                {
+                    Card c  = Game.GetGame.DrawOneCard(CurrentPlayer);
+                    exchange_done = true;
+                    Window.GetWindow.WriteLine("Traded: " + s + " for: " + c.CardType.Name);
+                }
+            }
+        }
+
+        public void Produce()
+        {
+            foreach (Card ca in Game.GetGame.buildings[Game.GetGame.players[Game.GetGame.CurrentPlayer]])
+            {
+                if (ca.CardType.Effect == Effect.ProducesOne)
+                {
+                    Card c = new Card
+                    {
+                        CardType = ca.CardType.EffectCard
+                    };
+                    Game.GetGame.cards[Game.GetGame.players[CurrentPlayer]].Add(c);
+                    Window.GetWindow.WriteLine("Produced: " + c.CardType.Name);
+                }
+            }
+        }
+
+        public static bool IsTradable(Card ca)
+        {
+            bool res = false;
+            Game g = Game.GetGame;
+            foreach (Card c in g.buildings[g.players[g.CurrentPlayer]])
+            {
+                if (c.CardType.Effect == Effect.CanExchange && c.CardType.EffectCard.Name == ca.CardType.Name)
+                {
+                    res = true;
+                }
+            }
+            return res;
+        }
+
+        public void WriteOneMoreCard()
+        {
+            Window.GetWindow.WriteLine(PlayerName(CurrentPlayer) + " can now hold one more card in his hand");
+        }
+
+        public void WritePlayAgain()
+        {
+            Window.GetWindow.WriteLine(PlayerName(CurrentPlayer) + " gets to play again");
+        }
+
+        public void WriteSubstitute(string s)
+        {
+            Window.GetWindow.WriteLine(s + " is substitued this turn for " + PlayerName(CurrentPlayer));
         }
     }
 }

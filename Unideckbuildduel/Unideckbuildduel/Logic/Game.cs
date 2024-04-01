@@ -19,6 +19,8 @@ namespace Unideckbuildduel.Logic
         public Dictionary<Player, List<Card>> cards;
         public Dictionary<Player, List<Card>> buildings;
 
+        public List<HashSet<Card>> substitutesList;
+
         /// <summary>
         /// A reference to the single instance of this class
         /// </summary>
@@ -53,6 +55,11 @@ namespace Unideckbuildduel.Logic
             players = new List<Player> { new Player { Name = playerOneName }, new Player { Name = playerTwoName } };
             cards = new Dictionary<Player, List<Card>>();
             buildings = new Dictionary<Player, List<Card>>();
+
+            substitutesList = new List<HashSet<Card>>();
+            substitutesList.Add(new HashSet<Card>());
+            substitutesList.Add(new HashSet<Card>());
+
             initialiseDict();
             foreach (Player p in players)
             {
@@ -124,7 +131,7 @@ namespace Unideckbuildduel.Logic
                         foreach (CardType r in reqRs.Keys)
                         {
                             int presR = NumberOfCardsPresent(cards[players[playerNum]], r);
-                            if (presR < reqRs[r])
+                            if (presR < reqRs[r] && !IsSubstitued(r))
                             {
                                 reqRok = false;
                             }
@@ -143,17 +150,20 @@ namespace Unideckbuildduel.Logic
                     {
                         foreach(CardType r in reqRs.Keys)
                         {
-                            int num = 0;
-                            int i = 0;
-                            while (i<cards[players[playerNum]].Count && num < reqRs[r])
+                            if (!IsSubstitued(r))
                             {
-                                if (cards[players[playerNum]][i].CardType.Equals(r))
+                                int num = 0;
+                                int i = 0;
+                                while (i < cards[players[playerNum]].Count && num < reqRs[r])
                                 {
-                                    discardStack.Push(cards[players[playerNum]][i]);
-                                    cards[players[playerNum]].Remove(cards[players[playerNum]][i]);
-                                    num++;
+                                    if (cards[players[playerNum]][i].CardType.Equals(r))
+                                    {
+                                        discardStack.Push(cards[players[playerNum]][i]);
+                                        cards[players[playerNum]].Remove(cards[players[playerNum]][i]);
+                                        num++;
+                                    }
+                                    i++;
                                 }
-                                i++;
                             }
                         }
                     }
@@ -169,7 +179,7 @@ namespace Unideckbuildduel.Logic
                     }
 
                     if (card.CardType.Effect != null)
-                        newEffect(card.CardType.Effect);
+                        newEffect(card.CardType.Effect, card);
 
                     buildings[players[playerNum]].Add(card);
                     cards[players[playerNum]].Remove(card);
@@ -182,7 +192,7 @@ namespace Unideckbuildduel.Logic
                     discardStack.Push(card);
                     cards[players[playerNum]].Remove(card);
                     if (card.CardType.Effect != null)
-                        newEffect(card.CardType.Effect);
+                        newEffect(card.CardType.Effect, card);
                     Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
                     return (null, true);
                 default:
@@ -190,32 +200,41 @@ namespace Unideckbuildduel.Logic
             }
         }
 
-        public void newEffect(Effect? e)
+        public void newEffect(Effect? e, Card c)
         {
             listDict[CurrentPlayer][e] = true;
-            useEffect(e);
+            useEffect(e, c);
         }
 
-        public void useEffect(Effect? effect)
+        public void useEffect(Effect? effect, Card c)
         {
             switch (effect)
             { 
                 case Effect.OneMoreCard:
                     {
                         if (players[CurrentPlayer].HandSize != 6)
+                        {
                             players[CurrentPlayer].HandSize++;
+                            Controller.GetControler.WriteOneMoreCard();
+                        }
                         break;
                     }
                 case Effect.PlayAgain:
                     {
-                        GameStatus = GameStatus.TurnStart;
+                        Controller.GetControler.WritePlayAgain();
+                        GameStatus = GameStatus.Drawing;
+                        Play();
                         listDict[CurrentPlayer][effect] = false;
+                        break;
+                    }
+                case Effect.Substitute:
+                    {
+                        Controller.GetControler.WriteSubstitute(c.CardType.EffectCard.Name);
+                        substitutesList[CurrentPlayer].Add(c);
                         break;
                     }
                 default:
                     break;
-
-
             }
         }
 
@@ -324,36 +343,56 @@ namespace Unideckbuildduel.Logic
             return c;
         }
 
-        public void drawFromDeck(string s)
+        public Card drawFromDeck(string s)
         {
             bool res = true;
             int i = 0;
+            Card ca = null;
             while (i < commonDeck.Count && res)
             {
                 if (commonDeck.ElementAt(i).CardType.Name == s)
                 {
+                    ca = commonDeck.ElementAt(i);
                     cards[players[CurrentPlayer]].Add(commonDeck.ElementAt(i));
                     res = false;
                 }
                 i++;
             }
             Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
+            return ca;
         }
 
-        public void drawFromDiscard(string s)
+        public Card drawFromDiscard(string s)
         {
             bool res = true;
             int i = 0;
+            Card ca = null;
             while (i < discardStack.Count && res)
             {
                 if (discardStack.ElementAt(i).CardType.Name == s)
                 {
+                    ca = discardStack.ElementAt(i);
                     cards[players[CurrentPlayer]].Add(discardStack.ElementAt(i));
                     res = false;
                 }
                 i++;
             }
             Controller.GetControler.DisplayHand(CurrentPlayer, cards[players[CurrentPlayer]]);
+            return ca;
+        }
+
+        public bool IsSubstitued(CardType ct)
+        {
+            bool res = false;
+            foreach (Card ca in substitutesList[CurrentPlayer])
+            {
+                if (ca.CardType.EffectCard == ct)
+                {
+                    res = true;
+                    break;
+                }
+            }
+            return res;
         }
 
         /// <summary>

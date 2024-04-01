@@ -19,7 +19,7 @@ namespace Unideckbuildduel
         /// <summary>
         /// The size of cards
         /// </summary>
-        public static Size CardSize { get; set; } = new Size(162, 80);
+        public static Size CardSize { get; set; } = new Size(140, 80);
         /// <summary>
         /// The withd of the border of buildings
         /// </summary>
@@ -35,7 +35,7 @@ namespace Unideckbuildduel
         /// <summary>
         /// The font used for displays
         /// </summary>
-        public static Font BaseFont { get; set; } = new Font("Arial", 11, FontStyle.Bold);
+        public static Font BaseFont { get; set; } = new Font("Arial", 9, FontStyle.Bold);
         /// <summary>
         /// The colour of the text
         /// </summary>

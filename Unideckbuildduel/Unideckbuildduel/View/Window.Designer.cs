@@ -113,18 +113,22 @@
             this.DeckSize.AutoSize = true;
             this.DeckSize.Location = new System.Drawing.Point(1122, 489);
             this.DeckSize.Name = "DeckSize";
-            this.DeckSize.Size = new System.Drawing.Size(35, 13);
+            this.DeckSize.Padding = new System.Windows.Forms.Padding(5);
+            this.DeckSize.Size = new System.Drawing.Size(45, 23);
             this.DeckSize.TabIndex = 8;
             this.DeckSize.Text = "label1";
+            this.DeckSize.Click += new System.EventHandler(this.DeckSize_Click);
             // 
             // DiscardSize
             // 
             this.DiscardSize.AutoSize = true;
             this.DiscardSize.Location = new System.Drawing.Point(1122, 528);
             this.DiscardSize.Name = "DiscardSize";
-            this.DiscardSize.Size = new System.Drawing.Size(35, 13);
+            this.DiscardSize.Padding = new System.Windows.Forms.Padding(5);
+            this.DiscardSize.Size = new System.Drawing.Size(45, 23);
             this.DiscardSize.TabIndex = 9;
             this.DiscardSize.Text = "label2";
+            this.DiscardSize.Click += new System.EventHandler(this.DiscardSize_Click);
             // 
             // drawOncePerTurn
             // 
@@ -161,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1508, 639);
+            this.ClientSize = new System.Drawing.Size(1502, 623);
             this.Controls.Add(this.DrawFromDiscardButton);
             this.Controls.Add(this.ActiveEffectListBox);
             this.Controls.Add(this.drawOncePerTurn);
